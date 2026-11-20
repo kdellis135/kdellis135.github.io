@@ -1,349 +1,1327 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Jian (James) Huang</title>
-  <meta name="description" content="Jian (James) Huang, Senior Software Engineer in Calgary, Canada. Open-source learning sites and game mods.">
+  <meta name="description" content="Jian (James) Huang, Senior Software Engineer in Calgary, Canada. Free, open-source learning sites and game mods, built in spare time.">
   <link rel="canonical" href="https://kdellis135.github.io/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Jian (James) Huang">
-  <meta property="og:description" content="Senior Software Engineer in Calgary, Canada. Open-source learning sites and game mods.">
+  <meta property="og:description" content="Senior Software Engineer in Calgary, Canada. Free, open-source learning sites and game mods.">
   <meta property="og:url" content="https://kdellis135.github.io/">
-  <meta name="theme-color" content="#f8f5ef" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%237d2430'/%3E%3Crect x='6' y='7' width='20' height='18' rx='2' fill='%23fffdf9'/%3E%3Cpath d='M12.67 7v18M19.33 7v18' stroke='%237d2430' stroke-width='1'/%3E%3Crect x='10.67' y='7' width='4' height='10' fill='%231c1a17'/%3E%3Crect x='17.33' y='7' width='4' height='10' fill='%231c1a17'/%3E%3C/svg%3E">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#04070f">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%234f7dff'/%3E%3Cstop offset='1' stop-color='%237a5cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Crect x='6' y='7' width='20' height='18' rx='2' fill='%23f4f7ff'/%3E%3Cpath d='M12.67 7v18M19.33 7v18' stroke='%233b5bdb' stroke-width='1'/%3E%3Crect x='10.67' y='7' width='4' height='10' fill='%23070b16'/%3E%3Crect x='17.33' y='7' width='4' height='10' fill='%23070b16'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600&text=%E8%AF%97%E8%AF%8D%E5%BA%8A%E5%89%8D%E6%98%8E%E6%9C%88%E5%85%89&display=swap" rel="stylesheet">
+  <script>document.documentElement.className = 'js';</script>
   <style>
     :root {
-      color-scheme: light dark;
-      --bg: #f8f5ef;
-      --surface: #fffdf9;
-      --text: #1c1a17;
-      --muted: #5f5a52;
-      --line: #e4ded3;
-      --accent: #7d2430;
-      --accent-soft: #f1e4e2;
-      --key-white: #fffdf9;
-      --key-black: #1c1a17;
-      --key-line: #d6cfc2;
-      --key-press: #ebd0cf;
-      --serif: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-      --sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      --mono: ui-monospace, "SF Mono", "Cascadia Code", Consolas, Menlo, monospace;
-      --gutter: clamp(16px, 4vw, 40px);
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #121110;
-        --surface: #1a1917;
-        --text: #ece7df;
-        --muted: #a59e93;
-        --line: #2f2c28;
-        --accent: #e3959c;
-        --accent-soft: #2b1d1f;
-        --key-white: #e9e4da;
-        --key-black: #121110;
-        --key-line: #b8b0a3;
-        --key-press: #e2aeb2;
-      }
+      color-scheme: dark;
+      --bg: #03060d;
+      --bg-raise: #060b17;
+      --line: rgba(148, 170, 214, .12);
+      --line-2: rgba(148, 170, 214, .22);
+      --text: #e9eef8;
+      --muted: #9aa7bf;
+      --dim: #6b7893;
+      --blue: #5b8cff;
+      --sky: #7cc8ff;
+      --cyan: #3dd6f5;
+      --violet: #8b7bff;
+      --grad: linear-gradient(100deg, #a6dcff 0%, #5b8cff 48%, #a493ff 100%);
+      --sans: "Geist", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --mono: "Geist Mono", ui-monospace, "SF Mono", "Cascadia Code", Consolas, Menlo, monospace;
+      --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+      --zh: "Noto Serif SC", "Songti SC", "SimSun", serif;
+      --gutter: clamp(16px, 4.5vw, 64px);
+      --max: 102rem;
+      --radius: 20px;
+      --header: 4.25rem;
+      --ease: cubic-bezier(.2, .7, .2, 1);
     }
 
     *, *::before, *::after { box-sizing: border-box; }
-    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: calc(var(--header) + 1rem); scrollbar-color: #27324b var(--bg); }
+    @media (min-width: 125rem) { html { font-size: 112.5%; } }
+    @media (min-width: 150rem) { html { font-size: 125%; } }
     body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
+      margin: 0; min-height: 100vh;
+      background: var(--bg); color: var(--text);
       font: 400 1rem/1.65 var(--sans);
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+      overflow-x: hidden; overflow-x: clip;
     }
+    ::selection { background: rgba(91, 140, 255, .38); color: #fff; }
     a { color: inherit; }
-    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+    :focus-visible { outline: 2px solid var(--sky); outline-offset: 3px; border-radius: 6px; }
     h1, h2, h3, h4, p { margin: 0; }
-
-    .wrap { max-width: 66rem; margin: 0 auto; padding: 0 var(--gutter); }
+    button { font: inherit; color: inherit; }
+    svg { display: block; }
+    .wrap { width: min(100% - 2 * var(--gutter), var(--max)); margin-inline: auto; }
+    .no-js .js-only { display: none !important; }
 
     .skip {
-      position: absolute; left: -9999px; top: 0;
-      background: var(--text); color: var(--bg); padding: .5rem .9rem; z-index: 10;
+      position: absolute; left: -9999px; top: 0; z-index: 100;
+      background: var(--text); color: var(--bg); padding: .5rem .9rem; border-radius: 8px;
     }
     .skip:focus { left: 1rem; top: 1rem; }
 
-    /* Header */
-    .site-header { border-bottom: 1px solid var(--line); }
-    .site-header .wrap {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 1rem; min-height: 4rem;
+    /* ---------- Ambient background ---------- */
+    .backdrop {
+      position: fixed; inset: 0; z-index: -2; pointer-events: none;
+      background:
+        radial-gradient(56rem 38rem at 0% 0%, rgba(37, 78, 199, .30), transparent 62%),
+        radial-gradient(48rem 34rem at 100% 18%, rgba(14, 116, 144, .20), transparent 62%),
+        radial-gradient(64rem 40rem at 50% 115%, rgba(76, 59, 196, .22), transparent 62%),
+        linear-gradient(180deg, #050a18 0%, var(--bg) 50%, #02040a 100%);
     }
-    .mark {
-      font: 600 1.45rem/1 var(--serif);
-      text-decoration: none; letter-spacing: .02em;
+    .backdrop::after {
+      content: ""; position: absolute; inset: 0; opacity: .07; mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
-    .mark span { color: var(--accent); }
-    .nav { display: flex; gap: clamp(1rem, 3vw, 2rem); font-size: .9rem; font-weight: 500; }
-    .nav a { text-decoration: none; color: var(--muted); }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      position: sticky; top: 0; z-index: 50;
+      border-bottom: 1px solid transparent;
+      transition: background-color .3s, border-color .3s;
+    }
+    .site-header.scrolled {
+      background: rgba(4, 8, 18, .68);
+      -webkit-backdrop-filter: saturate(160%) blur(14px); backdrop-filter: saturate(160%) blur(14px);
+      border-bottom-color: var(--line);
+    }
+    .header-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: var(--header); }
+    .logo { display: inline-flex; align-items: center; gap: .7rem; text-decoration: none; font-weight: 600; letter-spacing: -.01em; }
+    .logo-mark {
+      width: 2.15rem; height: 2.15rem; border-radius: .7rem; display: grid; place-items: center; flex: none;
+      font: 600 .78rem/1 var(--mono); color: #fff; letter-spacing: .02em;
+      background: linear-gradient(135deg, #3b6cf6, #7a5cff);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 8px 24px -8px rgba(91, 140, 255, .7);
+    }
+    .header-tools { display: flex; align-items: center; gap: .6rem; }
+    .nav { display: flex; gap: .2rem; padding: .28rem; border: 1px solid var(--line); border-radius: 999px; background: rgba(10, 16, 32, .55); }
+    .nav a { padding: .38rem .95rem; border-radius: 999px; font-size: .88rem; color: var(--muted); text-decoration: none; transition: color .2s, background-color .2s; }
     .nav a:hover { color: var(--text); }
+    .nav a.active { color: var(--text); background: rgba(91, 140, 255, .16); }
+    .sound {
+      width: 2.5rem; height: 2.5rem; border-radius: 50%; display: grid; place-items: center; cursor: pointer;
+      border: 1px solid var(--line); background: rgba(10, 16, 32, .55); color: var(--muted);
+      transition: color .2s, border-color .2s, background-color .2s;
+    }
+    .sound:hover { color: var(--text); border-color: var(--line-2); }
+    .sound[aria-pressed="true"] { color: #fff; border-color: rgba(91, 140, 255, .5); background: rgba(91, 140, 255, .18); }
+    .bars { display: flex; align-items: flex-end; gap: 2px; height: 14px; }
+    .bars i { width: 2.5px; border-radius: 2px; background: currentColor; height: 40%; }
+    .bars i:nth-child(2) { height: 85%; } .bars i:nth-child(3) { height: 60%; } .bars i:nth-child(4) { height: 30%; }
+    .music-on .sound .bars i, .piano.playing .bars i, .dock.playing .bars i { animation: eq 1s ease-in-out infinite alternate; }
+    .bars i:nth-child(2) { animation-delay: -.4s !important; } .bars i:nth-child(3) { animation-delay: -.7s !important; } .bars i:nth-child(4) { animation-delay: -.2s !important; }
+    @keyframes eq { 0% { height: 20%; } 100% { height: 100%; } }
+    .progress {
+      position: absolute; left: 0; bottom: -1px; height: 1px; width: 100%;
+      transform-origin: 0 50%; transform: scaleX(var(--p, 0)); background: var(--grad);
+    }
+    @media (max-width: 30rem) { .logo-name { display: none; } }
 
-    /* Hero */
-    .hero { padding: clamp(4rem, 11vw, 8.5rem) 0 clamp(3.5rem, 8vw, 6rem); }
-    .eyebrow {
-      display: flex; align-items: center; gap: .75rem; flex-wrap: wrap;
-      font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
-      color: var(--muted);
+    /* ---------- Hero ---------- */
+    .hero { position: relative; isolation: isolate; padding: clamp(3.25rem, 8vw, 7.5rem) 0 clamp(3.5rem, 7vw, 6rem); }
+    .hero-bg {
+      position: absolute; inset: calc(-1 * var(--header)) 0 0; z-index: -1; overflow: hidden; pointer-events: none;
+      -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent); mask-image: linear-gradient(180deg, #000 55%, transparent);
     }
-    .eyebrow::before { content: ""; width: 2rem; height: 1px; background: var(--accent); }
-    .eyebrow .dot { color: var(--accent); }
-    @media (max-width: 34rem) {
-      .eyebrow { flex-direction: column; align-items: flex-start; gap: .2rem; }
-      .eyebrow::before, .eyebrow .dot { display: none; }
+    .hero-bg .grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(148, 170, 214, .075) 1px, transparent 1px), linear-gradient(90deg, rgba(148, 170, 214, .075) 1px, transparent 1px);
+      background-size: 64px 64px; background-position: center top;
+      -webkit-mask-image: radial-gradient(ellipse 70% 75% at 50% 15%, #000 15%, transparent 70%);
+      mask-image: radial-gradient(ellipse 70% 75% at 50% 15%, #000 15%, transparent 70%);
     }
+    .aurora {
+      position: absolute; left: 50%; top: -30vw; width: 96vw; height: 60vw; border-radius: 50%;
+      background: conic-gradient(from 200deg, rgba(37, 99, 235, 0), rgba(37, 99, 235, .6), rgba(8, 145, 178, .45), rgba(79, 70, 229, .55), rgba(37, 99, 235, 0));
+      filter: blur(90px); opacity: .5; transform: translateX(-50%);
+      animation: aurora 26s ease-in-out infinite alternate;
+    }
+    @keyframes aurora { to { transform: translateX(-50%) rotate(22deg) scale(1.12); } }
+
+    .hero-grid { display: grid; gap: clamp(2.5rem, 5vw, 5rem); align-items: center; margin-top: clamp(1.5rem, 3vw, 2.5rem); }
+    .hero-grid > * { min-width: 0; }
+    @media (min-width: 64rem) { .hero-grid { grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr); } }
+    .pill {
+      display: inline-flex; align-items: center; flex-wrap: wrap; gap: .25rem .55rem;
+      padding: .42rem .95rem .42rem .75rem; border: 1px solid var(--line-2); border-radius: 1rem;
+      background: rgba(12, 20, 40, .6); font: 500 .78rem/1.3 var(--mono); color: var(--muted); letter-spacing: .02em;
+    }
+    .pill .dot { width: .45rem; height: .45rem; border-radius: 50%; background: var(--sky); box-shadow: 0 0 10px var(--sky); }
+    .pill .sep { color: var(--dim); }
     h1 {
-      margin-top: 1.25rem;
-      font: 600 clamp(2.75rem, 8vw, 5.25rem)/1.02 var(--serif);
-      letter-spacing: -.015em;
+      margin-top: 1.4rem; padding-bottom: .06em; white-space: nowrap;
+      font-size: clamp(2rem, 9.4vw, 7rem); font-weight: 600; line-height: 1.08; letter-spacing: -.045em;
+      background: linear-gradient(180deg, #ffffff 35%, #a9b8d6); -webkit-background-clip: text; background-clip: text; color: transparent;
     }
-    h1 .paren { font-style: italic; font-weight: 500; color: var(--muted); }
-    .lede {
-      margin-top: 1.75rem; max-width: 38rem;
-      font-size: clamp(1.05rem, 2vw, 1.2rem); line-height: 1.7; color: var(--muted);
+    h1 .paren { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -.01em; }
+    .tagline {
+      max-width: 30ch;
+      font-size: clamp(1.4rem, 2.4vw, 2.15rem); line-height: 1.28; letter-spacing: -.022em; color: #d6deee;
     }
-    .lede strong { color: var(--text); font-weight: 500; }
-    .cta { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2.25rem; }
+    .tagline em, h2 em {
+      font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: 0; padding-right: .08em;
+      background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .tagline em { font-size: 1.1em; }
+    .lede { margin-top: 1.35rem; max-width: 60ch; font-size: clamp(1rem, 1.2vw, 1.12rem); color: var(--muted); }
+    .lede a, .inline-link {
+      color: var(--text); text-decoration: none;
+      background: linear-gradient(90deg, rgba(124, 200, 255, .7), rgba(139, 123, 255, .7)) 0 100% / 100% 1px no-repeat;
+      transition: background-size .25s, color .2s;
+    }
+    .lede a:hover, .inline-link:hover { color: #fff; background-size: 100% 2px; }
+    .cta { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2.2rem; }
     .btn {
-      display: inline-flex; align-items: center; gap: .5rem;
-      padding: .7rem 1.2rem; border-radius: 999px;
-      border: 1px solid var(--line); background: var(--surface);
-      font-size: .92rem; font-weight: 500; text-decoration: none;
-      transition: border-color .15s, background-color .15s, color .15s;
+      display: inline-flex; align-items: center; gap: .55rem; height: 2.95rem; padding: 0 1.3rem; border-radius: 999px; cursor: pointer;
+      border: 1px solid var(--line-2); background: rgba(14, 22, 42, .6); color: var(--text);
+      font-size: .95rem; font-weight: 500; text-decoration: none; white-space: nowrap;
+      transition: transform .2s var(--ease), border-color .2s, background-color .2s, box-shadow .2s;
     }
-    .btn:hover { border-color: var(--muted); }
-    .btn.primary { background: var(--text); color: var(--bg); border-color: var(--text); }
-    .btn.primary:hover { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+    .btn:hover { border-color: rgba(148, 170, 214, .42); transform: translateY(-1px); }
     .btn svg { width: 1rem; height: 1rem; }
+    .btn.primary {
+      border-color: transparent; color: #fff;
+      background: linear-gradient(135deg, #4f7dff, #6d5dfc);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .22), 0 12px 32px -12px rgba(91, 120, 255, .8);
+    }
+    .btn.primary:hover { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .22), 0 16px 40px -12px rgba(91, 120, 255, 1); }
 
-    /* Sections */
-    section.block { padding: clamp(3.5rem, 8vw, 5.5rem) 0; border-top: 1px solid var(--line); }
-    .section-head { margin-bottom: clamp(2rem, 5vw, 3rem); }
-    h2 {
-      font: 600 clamp(2rem, 4.5vw, 2.75rem)/1.1 var(--serif);
-      letter-spacing: -.01em;
+    /* Code card */
+    .code-wrap { position: relative; }
+    .code-wrap::before {
+      content: ""; position: absolute; inset: -14% -10%; z-index: -1;
+      background: radial-gradient(closest-side, rgba(79, 125, 255, .32), transparent); filter: blur(28px);
     }
-    .section-head p { margin-top: .75rem; max-width: 40rem; color: var(--muted); }
+    .code-card {
+      border-radius: 18px; overflow: hidden;
+      border: 1px solid var(--line-2);
+      background: linear-gradient(180deg, rgba(16, 24, 46, .88), rgba(7, 11, 24, .94));
+      box-shadow: 0 50px 90px -45px rgba(0, 0, 0, .9), inset 0 1px 0 rgba(255, 255, 255, .05);
+    }
+    .code-bar { display: flex; align-items: center; gap: .45rem; padding: .8rem 1rem; border-bottom: 1px solid var(--line); font: 500 .76rem/1 var(--mono); color: var(--dim); }
+    .code-bar i { width: .7rem; height: .7rem; border-radius: 50%; background: #253049; }
+    .code-bar i:first-child { background: #3b5bdb; } .code-bar i:nth-child(2) { background: #5a4fcf; } .code-bar i:nth-child(3) { background: #1f8fb3; }
+    .code-bar .file { margin-left: .6rem; padding: .3rem .6rem; border-radius: .4rem; background: rgba(91, 140, 255, .1); color: var(--muted); }
+    .code { padding: 1.1rem .75rem 1.25rem 0; overflow-x: auto; counter-reset: ln; font: 400 clamp(.68rem, .55rem + .35vw, .9rem)/1.8 var(--mono); }
+    .code .l { white-space: pre; padding-left: 2.9rem; position: relative; }
+    .code .l::before { counter-increment: ln; content: counter(ln); position: absolute; left: 0; width: 2rem; text-align: right; color: #354260; }
+    .k { color: #c4a7ff; } .v { color: #e9eef8; } .p { color: #8fd3ff; } .s { color: #a5e8c2; } .c { color: #5f6d8a; font-style: italic; } .f { color: #7cb4ff; } .o, .n { color: #8794ae; }
+    .cursor { display: inline-block; width: .55em; height: 1.15em; vertical-align: -.2em; margin-left: .15em; background: var(--sky); animation: blink 1.1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    .code-status { display: flex; justify-content: space-between; gap: 1rem; padding: .55rem 1rem; border-top: 1px solid var(--line); font: 400 .72rem/1.4 var(--mono); color: var(--dim); }
+    .code-status b { color: #86efac; font-weight: 400; }
 
-    /* Projects */
-    .group { display: grid; gap: .5rem 2rem; }
-    .group + .group { margin-top: clamp(2.5rem, 6vw, 3.5rem); }
-    .group-title {
-      font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
-      color: var(--accent);
-      padding-top: 1.6rem;
+    /* Stats */
+    .stats {
+      list-style: none; margin: clamp(3rem, 6vw, 5rem) 0 0; padding: 0;
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px;
+      border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--line);
     }
-    .projects { list-style: none; margin: 0; padding: 0; }
-    .project { padding: 1.5rem 0; border-top: 1px solid var(--line); }
-    .project-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: .25rem .9rem; }
-    .project h4 { font: 600 1.6rem/1.2 var(--serif); }
-    .project h4 a { text-decoration: none; }
-    .project h4 a:hover { color: var(--accent); }
-    .project h4 .zh { font-family: var(--sans); font-weight: 500; font-size: 1.1rem; color: var(--muted); margin-left: .35rem; }
-    .repo { font: 400 .8rem/1.4 var(--mono); color: var(--muted); overflow-wrap: anywhere; }
-    .project p { margin-top: .6rem; max-width: 44rem; }
-    .meta {
-      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
-      gap: .75rem 1.5rem; margin-top: 1rem;
+    @media (min-width: 52rem) { .stats { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+    .stats li { padding: clamp(1.15rem, 2.2vw, 1.8rem) clamp(1rem, 2.2vw, 2rem); background: linear-gradient(180deg, #081022, #050a16); }
+    .stats strong {
+      display: block; font-size: clamp(2rem, 3.6vw, 3.1rem); font-weight: 600; line-height: 1; letter-spacing: -.045em; font-variant-numeric: tabular-nums;
+      background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
     }
-    .tags { display: flex; flex-wrap: wrap; gap: .4rem; list-style: none; margin: 0; padding: 0; }
-    .tags li {
-      font-size: .75rem; font-weight: 500; color: var(--muted);
-      padding: .15rem .6rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface);
-    }
-    .links { display: flex; gap: 1.25rem; font-size: .9rem; font-weight: 500; }
-    .links a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
-    .links a:hover { border-bottom-color: currentColor; }
-    .links a::after { content: " \2197"; font-size: .85em; }
+    .stats span { display: block; margin-top: .55rem; font-size: .9rem; color: var(--muted); line-height: 1.45; }
 
-    @media (min-width: 52rem) {
-      .group { grid-template-columns: 11rem 1fr; }
-      .group-title { position: sticky; top: 1.5rem; align-self: start; }
+    /* ---------- Sections ---------- */
+    .block { position: relative; padding: clamp(4rem, 9vw, 7.5rem) 0; }
+    .block::before {
+      content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: min(100% - 2 * var(--gutter), var(--max)); height: 1px;
+      background: linear-gradient(90deg, transparent, var(--line-2) 20%, var(--line-2) 80%, transparent);
     }
+    .section-head { display: grid; gap: 1.1rem; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+    .kicker { display: flex; align-items: center; gap: .75rem; font: 500 .76rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--sky); }
+    .kicker::after { content: ""; width: 2.5rem; height: 1px; background: linear-gradient(90deg, var(--sky), transparent); }
+    .kicker .kn { color: var(--dim); }
+    h2 { margin-top: 1rem; padding-bottom: .06em; white-space: nowrap; font-size: clamp(1.4rem, 6.1vw, 4.2rem); font-weight: 600; line-height: 1.1; letter-spacing: -.045em; }
+    .section-head .intro { max-width: 54ch; font-size: clamp(1rem, 1.2vw, 1.1rem); color: var(--muted); }
+    .hint { margin-top: .9rem; display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; font: 400 .78rem/1.4 var(--mono); color: var(--dim); }
+    .hint span { display: inline-flex; align-items: center; gap: .4rem; }
+    .hint svg { width: .85rem; height: .85rem; }
 
-    /* Music */
-    .music { display: grid; gap: 2rem; }
-    .music p { max-width: 40rem; font-size: clamp(1.05rem, 2vw, 1.15rem); color: var(--muted); }
-    .music p + p { margin-top: 1rem; }
-    .music .quote {
-      font: italic 500 clamp(1.35rem, 3vw, 1.7rem)/1.4 var(--serif);
-      color: var(--text);
+    /* Shared glass surface with cursor spotlight */
+    .surface {
+      --glow: 91 140 255;
+      position: relative; border: 1px solid var(--line); border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(14, 21, 40, .76), rgba(6, 10, 21, .84));
     }
-    .keyboard {
-      border: 1px solid var(--line); border-radius: 10px; overflow: hidden;
-      background: var(--key-white);
-      box-shadow: 0 1px 0 var(--line), 0 18px 40px -28px rgba(0,0,0,.35);
+    .surface::before, .surface::after { content: ""; position: absolute; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .35s; }
+    .surface::before {
+      inset: -1px; padding: 1px;
+      background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 0%), rgb(var(--glow) / .8), transparent 62%);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude;
     }
-    .keyboard::before { content: ""; display: block; height: 5px; background: var(--accent); }
-    .keyboard svg { display: block; width: 100%; height: 88px; }
-    .kw { fill: var(--key-white); }
-    .kp { fill: var(--key-press); }
-    .kl { stroke: var(--key-line); stroke-width: 1; fill: none; }
-    .kb { fill: var(--key-black); }
+    .surface::after { inset: 0; background: radial-gradient(460px circle at var(--mx, 50%) var(--my, 0%), rgb(var(--glow) / .1), transparent 45%); }
+    .surface:hover::before, .surface:hover::after { opacity: 1; }
+
+    /* ---------- Projects ---------- */
+    .group-label {
+      display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem;
+      font: 500 .78rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+    }
+    .group-label::after { content: ""; flex: 1; height: 1px; background: var(--line); order: 1; }
+    .group-label span { order: 2; color: var(--dim); }
+    .cards { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(1rem, 1.6vw, 1.5rem); }
+    .cards + .group-label { margin-top: clamp(3rem, 6vw, 4.5rem); }
+    .cards > li { display: flex; }
+    @media (min-width: 46rem) {
+      .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .cards.three > li:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    }
+    @media (min-width: 72rem) {
+      .cards.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .cards.three > li:last-child:nth-child(odd) { grid-column: auto; }
+    }
+    .card { flex: 1; display: flex; flex-direction: column; transition: transform .35s var(--ease), border-color .35s, box-shadow .35s; }
+    .card:hover { transform: translateY(-3px); border-color: rgb(var(--glow) / .3); box-shadow: 0 34px 70px -36px rgb(var(--glow) / .45); }
+    .art {
+      position: relative; height: clamp(150px, 12vw, 190px); overflow: hidden;
+      border-radius: calc(var(--radius) - 1px) calc(var(--radius) - 1px) 0 0; border-bottom: 1px solid var(--line);
+      background: radial-gradient(120% 130% at 50% 0%, rgb(var(--glow) / .18), transparent 62%), rgba(4, 8, 18, .6);
+    }
+    .art::before {
+      content: ""; position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(148, 170, 214, .14) 1px, transparent 1px); background-size: 18px 18px;
+      -webkit-mask-image: linear-gradient(180deg, #000, transparent 85%); mask-image: linear-gradient(180deg, #000, transparent 85%);
+    }
+    .art svg { position: absolute; inset: 0; width: 100%; height: 100%; transition: transform .6s var(--ease); }
+    .card:hover .art svg { transform: scale(1.035); }
+    .card-body { display: flex; flex-direction: column; flex: 1; padding: clamp(1.25rem, 2vw, 1.75rem); container-type: inline-size; }
+    .card-meta { display: flex; justify-content: space-between; align-items: center; gap: 1rem; font: 500 .72rem/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: rgb(var(--glow)); }
+    .status { display: inline-flex; align-items: center; gap: .45rem; color: #86efac; letter-spacing: .08em; }
+    .status::before { content: ""; width: .42rem; height: .42rem; border-radius: 50%; background: #4ade80; box-shadow: 0 0 10px #4ade80; }
+    .status.mod { color: var(--dim); }
+    .status.mod::before { background: var(--dim); box-shadow: none; }
+    .card h4 { margin-top: 1rem; white-space: nowrap; font-size: clamp(1.05rem, 6cqi, 1.65rem); font-weight: 600; line-height: 1.2; letter-spacing: -.028em; }
+    .card h4 a { text-decoration: none; transition: color .2s; }
+    .card h4 a:hover { color: #fff; }
+    .card h4 .arrow { display: inline-block; width: .72em; height: .72em; margin-left: .3rem; vertical-align: .02em; color: var(--dim); transition: transform .25s var(--ease), color .2s; }
+    .card h4 a:hover .arrow { transform: translate(2px, -2px); color: rgb(var(--glow)); }
+    .zh { font-family: var(--zh); font-weight: 600; font-size: .82em; color: var(--muted); margin-left: .35rem; letter-spacing: .05em; }
+    .repo {
+      display: inline-flex; align-items: center; gap: .5rem; align-self: flex-start; max-width: 100%; margin-top: .7rem;
+      padding: .32rem .6rem; border-radius: .5rem; border: 1px solid var(--line); background: rgba(255, 255, 255, .02);
+      font: 400 .78rem/1.35 var(--mono); color: var(--muted); text-decoration: none; overflow-wrap: anywhere;
+      transition: color .2s, border-color .2s, background-color .2s;
+    }
+    .repo:hover { color: var(--text); border-color: var(--line-2); background: rgba(255, 255, 255, .05); }
+    .repo svg { width: .95rem; height: .95rem; flex: none; }
+    .desc { margin-top: 1rem; color: var(--muted); }
+    .for { margin: 1rem 0 1.25rem; font-size: .93rem; color: #cfd8ea; }
+    .local {
+      display: inline-flex; align-items: center; gap: .5rem; align-self: flex-start; margin-top: .9rem;
+      padding: .38rem .65rem; border-radius: 999px; border: 1px solid rgb(var(--glow) / .28); background: rgb(var(--glow) / .08);
+      font: 500 .72rem/1.3 var(--mono); color: rgb(var(--glow));
+    }
+    .local svg { width: .95rem; height: .95rem; flex: none; }
+    .for b { display: block; margin-bottom: .2rem; font: 500 .68rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--dim); }
+    .tags { list-style: none; margin: auto 0 0; padding: 1.1rem 0 0; display: flex; flex-wrap: wrap; gap: .4rem; border-top: 1px dashed var(--line); }
+    .tags li { font: 500 .7rem/1 var(--mono); padding: .42rem .6rem; border-radius: .45rem; border: 1px solid var(--line); background: rgba(148, 170, 214, .06); color: #b6c2d8; }
+
+    /* ---------- Music ---------- */
+    .quote {
+      position: relative; max-width: 34ch; margin: 0 0 clamp(2.5rem, 5vw, 4rem); padding-left: clamp(1.25rem, 3vw, 2.25rem);
+      font: 400 clamp(1.65rem, 3.3vw, 3rem)/1.22 var(--serif); letter-spacing: -.005em; color: #dfe6f5;
+    }
+    .quote::before { content: ""; position: absolute; left: 0; top: .2em; bottom: .2em; width: 2px; border-radius: 2px; background: var(--grad); }
+    .quote em { font-style: italic; color: #fff; }
+    .eras { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(1rem, 1.6vw, 1.5rem); }
+    @media (min-width: 56rem) { .eras { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    .eras > li { display: flex; }
+    .era { flex: 1; padding: clamp(1.4rem, 2.2vw, 2rem); display: flex; flex-direction: column; }
+    .glyph { width: 100%; max-width: 160px; height: 48px; color: rgb(var(--glow)); }
+    .era { container-type: inline-size; }
+    .era-name { margin-top: 1.4rem; font: 500 .76rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: rgb(var(--glow)); }
+    .composers { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: .35rem; }
+    .composers li { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0 .75rem; }
+    .composers .cn { white-space: nowrap; font: 400 clamp(1.2rem, 8.4cqi, 1.95rem)/1.15 var(--serif); color: #f1f4fb; }
+    .composers .cy { font: 400 .76rem/1 var(--mono); color: var(--dim); }
+    .era p { margin-top: 1rem; color: var(--muted); }
+
+    /* Quote beside the listening room on wide screens */
+    .music-lead { display: grid; gap: clamp(1.5rem, 3vw, 3.5rem); align-items: center; margin-bottom: clamp(1rem, 1.6vw, 1.5rem); }
+    @media (min-width: 75rem) { .music-lead { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); } }
+    .music-lead .quote { margin: 0; }
+
+    /* Listening room */
+    .listen { padding: clamp(1.4rem, 2.4vw, 2.25rem); display: grid; gap: 1.5rem 3rem; }
+    @media (min-width: 60rem) and (max-width: 74.99rem) { .listen { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); align-items: center; } }
+    .listen h3 { margin-top: .9rem; white-space: nowrap; font: 400 clamp(2.2rem, 4vw, 3.4rem)/1.05 var(--serif); letter-spacing: -.01em; color: #f1f4fb; }
+    .work { margin-top: .45rem; font: 500 .78rem/1.4 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: rgb(var(--glow)); }
+    .listen .sub { margin-top: .7rem; color: var(--muted); max-width: 52ch; }
+    .credit { margin-top: 1rem; font: 400 .76rem/1.5 var(--mono); color: var(--dim); }
+    .credit a { color: var(--muted); }
+    .tracks { list-style: none; margin: 0; padding: 0; display: grid; gap: .65rem; }
+    .track {
+      width: 100%; display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; align-items: center; gap: 1rem;
+      padding: .9rem 1rem; border-radius: 14px; border: 1px solid var(--line); background: rgba(255, 255, 255, .02);
+      text-align: left; cursor: pointer; transition: border-color .2s, background-color .2s;
+    }
+    .track:hover { border-color: var(--line-2); background: rgba(91, 140, 255, .06); }
+    .track.current { border-color: rgba(91, 140, 255, .45); background: rgba(91, 140, 255, .1); }
+    .tnum { min-width: 1.9rem; font: 400 1.05rem/1 var(--serif); font-style: italic; color: var(--sky); }
+    .tname { font-weight: 500; line-height: 1.35; }
+    .tname small { display: block; font-size: .85rem; font-weight: 400; color: var(--muted); }
+    .tdur { font: 400 .78rem/1 var(--mono); color: var(--muted); }
+    .tbtn { width: 2.3rem; height: 2.3rem; border-radius: 50%; display: grid; place-items: center; color: #fff; background: linear-gradient(135deg, #4f7dff, #6d5dfc); box-shadow: 0 8px 20px -8px rgba(91, 120, 255, .9); }
+    .tbtn svg { width: .85rem; height: .85rem; }
+    .i-pause { display: none; }
+    .track.playing .i-play, .piano.playing .play .i-play, .dock.playing .dock-toggle .i-play { display: none; }
+    .track.playing .i-pause, .piano.playing .play .i-pause, .dock.playing .dock-toggle .i-pause { display: block; }
+    @media (max-width: 30rem) { .tnum { display: none; } .track { grid-template-columns: minmax(0, 1fr) auto auto; gap: .75rem; } }
+
+    /* Piano */
+    .piano { margin-top: clamp(1rem, 1.6vw, 1.5rem); overflow: hidden; }
+    .piano::before, .piano::after { display: none; }
+    .piano-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; padding: clamp(1.2rem, 2.2vw, 1.75rem) clamp(1.2rem, 2.4vw, 2rem); }
+    .track-info { display: flex; align-items: center; gap: 1rem; min-width: 0; }
+    .track-info .bars { height: 22px; gap: 3px; color: var(--sky); flex: none; }
+    .track-info .bars i { width: 3px; }
+    .track-title { font-weight: 500; }
+    .track-sub { font: 400 .8rem/1.5 var(--mono); color: var(--muted); }
+    .play .i-pause { display: none; }
+    .stage {
+      position: relative; height: clamp(76px, 9vw, 140px);
+      background-image: repeating-linear-gradient(180deg, rgba(148, 170, 214, .1) 0 1px, transparent 1px 13px);
+      background-size: 100% 53px; background-position: 0 55%; background-repeat: repeat-x;
+    }
+    .stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .keys {
+      position: relative; height: clamp(110px, 12vw, 200px);
+      margin: 0 clamp(.6rem, 1.6vw, 1.25rem) clamp(.6rem, 1.6vw, 1.25rem);
+      user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; touch-action: manipulation;
+    }
+    .keys::before { content: ""; position: absolute; left: 0; right: 0; top: -3px; height: 3px; border-radius: 3px 3px 0 0; background: var(--grad); z-index: 3; }
+    .key { position: absolute; top: 0; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    .white {
+      height: 100%; border-radius: 0 0 7px 7px;
+      background: linear-gradient(180deg, #c2cde3 0%, #eaf0f9 10%, #f8faff 100%);
+      box-shadow: inset -1px 0 0 rgba(10, 20, 40, .2), inset 0 -6px 0 rgba(10, 20, 40, .1);
+      transition: background .12s, box-shadow .12s;
+    }
+    .black {
+      z-index: 2; height: 62%; border-radius: 0 0 5px 5px;
+      background: linear-gradient(180deg, #0a0f1e, #1b2337 86%, #2b3552);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, .5), inset 0 -5px 0 rgba(255, 255, 255, .06);
+      transition: background .12s, box-shadow .12s;
+    }
+    @media (hover: hover) {
+      .white:hover { background: linear-gradient(180deg, #c2cde3 0%, #e3ecfb 10%, #eef4ff 100%); }
+      .black:hover { background: linear-gradient(180deg, #0f1730, #24304c 86%, #344166); }
+    }
+    .white.on { background: linear-gradient(180deg, #6ea8ff 0%, #a3cdff 55%, #d4eaff 100%); box-shadow: inset -1px 0 0 rgba(10, 20, 40, .2), inset 0 -2px 0 rgba(10, 20, 40, .1); }
+    .black.on { background: linear-gradient(180deg, #2c55d6, #6a8dff); box-shadow: 0 0 18px rgba(91, 140, 255, .85); }
+    .white[data-label]::after { content: attr(data-label); position: absolute; left: 0; right: 0; bottom: .65rem; text-align: center; font: 500 .56rem/1 var(--mono); color: #8492ab; }
+
+    /* Mini player */
+    .dock {
+      position: fixed; z-index: 60; right: max(16px, calc((100vw - var(--max)) / 2 - 1rem)); bottom: 16px;
+      width: min(25rem, calc(100% - 32px));
+      display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; align-items: center; gap: .8rem;
+      padding: .7rem .75rem; border-radius: 18px; border: 1px solid var(--line-2);
+      background: rgba(8, 13, 28, .82); -webkit-backdrop-filter: blur(16px) saturate(160%); backdrop-filter: blur(16px) saturate(160%);
+      box-shadow: 0 24px 60px -20px rgba(0, 0, 0, .85);
+      opacity: 0; transform: translateY(12px); transition: opacity .3s var(--ease), transform .3s var(--ease);
+    }
+    .dock.show { opacity: 1; transform: none; }
+    .dock[hidden] { display: none; }
+    .dock-btn { width: 2.3rem; height: 2.3rem; border-radius: 50%; display: grid; place-items: center; border: 0; cursor: pointer; background: transparent; color: var(--muted); transition: color .2s, background-color .2s; }
+    .dock-btn:hover { color: var(--text); background: rgba(255, 255, 255, .06); }
+    .dock-btn svg { width: .95rem; height: .95rem; }
+    .dock-toggle { color: #fff; background: linear-gradient(135deg, #4f7dff, #6d5dfc); }
+    .dock-toggle:hover { background: linear-gradient(135deg, #5d88ff, #7a6bff); }
+    .dock-info { min-width: 0; }
+    .dock-title { display: flex; align-items: center; gap: .5rem; font-size: .84rem; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .dock-title .bars { height: 11px; color: var(--sky); flex: none; }
+    .dock-title .bars i { width: 2px; }
+    .dock-sub { display: flex; justify-content: space-between; gap: .5rem; font: 400 .7rem/1.6 var(--mono); color: var(--muted); }
+    .dock-bar { margin-top: .3rem; height: 3px; border-radius: 3px; background: rgba(148, 170, 214, .16); overflow: hidden; }
+    .dock-bar i { display: block; height: 100%; background: var(--grad); transform-origin: 0 50%; transform: scaleX(0); }
+    .dock-tools { display: flex; }
 
     /* Footer */
-    footer { border-top: 1px solid var(--line); padding: 2rem 0 2.5rem; font-size: .88rem; color: var(--muted); }
-    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem 2rem; }
-    footer a { text-decoration: none; }
+    footer { position: relative; padding: 2.2rem 0 2.6rem; font-size: .88rem; color: var(--dim); }
+    footer::before { content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: min(100% - 2 * var(--gutter), var(--max)); height: 1px; background: linear-gradient(90deg, transparent, var(--line-2) 20%, var(--line-2) 80%, transparent); }
+    .foot-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem 2rem; }
+    footer a { text-decoration: none; color: var(--muted); }
     footer a:hover { color: var(--text); }
+
+    /* Reveal on scroll */
+    .js .reveal { transition: opacity .9s var(--ease), transform .9s var(--ease); transition-delay: calc(var(--d, 0) * 90ms); }
+    .js .reveal:not(.in) { opacity: 0; transform: translateY(18px); }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .aurora, .cursor, .bars i { animation: none !important; }
+      .js .reveal { transition: none; }
+      .js .reveal:not(.in) { opacity: 1; transform: none; }
+      .card, .card:hover, .card:hover .art svg, .btn:hover { transform: none; }
+    }
   </style>
 </head>
 <body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-github" viewBox="0 0 16 16"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-local" viewBox="0 0 16 16"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="1.5" y="2.5" width="13" height="10.5" rx="2"/><path d="M1.5 5.5h13M5.4 9.4l1.8 1.6 3.4-3.3"/></g></symbol>
+  </svg>
   <a class="skip" href="#main">Skip to content</a>
+  <div class="backdrop" aria-hidden="true"></div>
 
-  <header class="site-header">
-    <div class="wrap">
-      <a class="mark" href="#top" aria-label="Jian (James) Huang, back to top">J<span>.</span>H</a>
-      <nav class="nav" aria-label="Main">
-        <a href="#work">Projects</a>
-        <a href="#music">Music</a>
-      </nav>
+  <header class="site-header" id="header">
+    <div class="wrap header-row">
+      <a class="logo" href="#top" aria-label="Jian (James) Huang, back to top"><span class="logo-mark" aria-hidden="true">JH</span><span class="logo-name">Jian Huang</span></a>
+      <div class="header-tools">
+        <nav class="nav" aria-label="Main">
+          <a href="#work">Projects</a>
+          <a href="#music">Music</a>
+        </nav>
+        <button class="sound js-only" id="sound" type="button" aria-pressed="false" aria-label="Play background music: Rachmaninoff, Second Piano Concerto" title="Background music">
+          <span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        </button>
+      </div>
     </div>
+    <div class="progress" aria-hidden="true"></div>
   </header>
 
   <main id="main">
+    <!-- ============ Hero ============ -->
     <section class="hero" id="top">
+      <div class="hero-bg" aria-hidden="true"><div class="grid"></div><div class="aurora"></div></div>
       <div class="wrap">
-        <p class="eyebrow">Senior Software Engineer <span class="dot" aria-hidden="true">&middot;</span> Calgary, Canada</p>
-        <h1>Jian <span class="paren">(James)</span> Huang</h1>
-        <p class="lede">I build software for a living, and in my own time I build things to share: <strong>free learning sites</strong> and a few <strong>game mods</strong>, all open source. Away from the computer keyboard, you will usually find me at the piano.</p>
-        <div class="cta">
-          <a class="btn primary" href="#work">See my projects</a>
-          <a class="btn" href="#music">Music</a>
+        <p class="pill reveal"><span class="dot" aria-hidden="true"></span>Senior Software Engineer <span class="sep" aria-hidden="true">/</span> Calgary, Canada</p>
+        <h1 class="reveal" style="--d:1">Jian <span class="paren">(James)</span> Huang</h1>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="tagline reveal" style="--d:2">I build software for a living. In my spare time, I build free things that <em>help people learn</em>.</p>
+            <p class="lede reveal" style="--d:3">So far, that means a study site for <a href="https://alberta-edu.github.io/ab_edu/">Alberta&rsquo;s elementary students</a>, <a href="https://mleprep.github.io/">interview prep</a> for software and ML engineers, and a <a href="https://shici-poem.github.io/poems/">bilingual collection of classical Chinese poems</a> that shares Chinese culture with English readers. Every one is free and needs no sign-up: your progress is saved right in your browser. All the code is open.</p>
+            <div class="cta reveal" style="--d:4">
+              <a class="btn primary" href="#work">Explore the projects
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4"/></svg>
+              </a>
+              <a class="btn" href="#music">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 12.5V3.6l7-1.6v9"/><circle cx="4.3" cy="12.5" r="1.8"/><circle cx="11.3" cy="11" r="1.8"/></svg>
+                Off the clock
+              </a>
+            </div>
+          </div>
+
+          <div class="code-wrap reveal" style="--d:3" aria-hidden="true">
+            <div class="code-card">
+              <div class="code-bar"><i></i><i></i><i></i><span class="file">james.ts</span></div>
+              <div class="code">
+                <div class="l"><span class="k">const</span> <span class="v">james</span> <span class="o">=</span> <span class="n">{</span></div>
+                <div class="l">  <span class="p">role</span><span class="n">:</span> <span class="s">"Senior Software Engineer"</span><span class="n">,</span></div>
+                <div class="l">  <span class="p">location</span><span class="n">:</span> <span class="s">"Calgary, Canada"</span><span class="n">,</span></div>
+                <div class="l">  <span class="p">builds</span><span class="n">:</span> <span class="n">[</span><span class="s">"learning sites"</span><span class="n">,</span> <span class="s">"game mods"</span><span class="n">],</span></div>
+                <div class="l">  <span class="p">price</span><span class="n">:</span> <span class="s">"free"</span><span class="n">,</span>    <span class="c">// for everyone</span></div>
+                <div class="l">  <span class="p">source</span><span class="n">:</span> <span class="s">"open"</span><span class="n">,</span>   <span class="c">// on GitHub</span></div>
+                <div class="l">  <span class="p">signup</span><span class="n">:</span> <span class="k">false</span><span class="n">,</span>   <span class="c">// progress stays local</span></div>
+                <div class="l">  <span class="p">piano</span><span class="n">:</span> <span class="n">[</span><span class="s">"Bach"</span><span class="n">,</span> <span class="s">"Chopin"</span><span class="n">,</span></div>
+                <div class="l">          <span class="s">"Debussy"</span><span class="n">,</span> <span class="s">"Rachmaninoff"</span><span class="n">],</span></div>
+                <div class="l"><span class="n">};</span></div>
+                <div class="l"> </div>
+                <div class="l"><span class="v">james</span><span class="n">.</span><span class="f">share</span><span class="n">();</span><span class="cursor"></span></div>
+              </div>
+              <div class="code-status"><span>main &middot; <b>&#10003; deployed</b></span><span id="clock">Calgary, AB</span></div>
+            </div>
+          </div>
         </div>
+
+        <ul class="stats reveal" style="--d:5">
+          <li><strong data-count="3">3</strong><span>free learning sites</span></li>
+          <li><strong data-count="477">477</strong><span>practice problems with solutions</span></li>
+          <li><strong data-count="378">378</strong><span>classical poems in English</span></li>
+          <li><strong>0</strong><span>sign-ups needed; progress stays in your browser</span></li>
+        </ul>
       </div>
     </section>
 
+    <!-- ============ Projects ============ -->
     <section class="block" id="work" aria-labelledby="work-title">
       <div class="wrap">
-        <div class="section-head">
-          <h2 id="work-title">Open-source projects</h2>
-          <p>Things I have built and shared in my own time. Every one is public on GitHub.</p>
-        </div>
+        <header class="section-head">
+          <div>
+            <p class="kicker reveal"><span class="kn">01</span>Projects</p>
+            <h2 class="reveal" style="--d:1" id="work-title">Built to <em>share</em></h2>
+          </div>
+          <div class="reveal" style="--d:2">
+            <p class="intro">Side projects I make in my own time. They are free for anyone to use, and the code for each one is public on GitHub.</p>
+            <p class="hint">
+              <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11L11 5M6 5h5v5"/></svg>Title opens the project</span>
+              <span><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-github"/></svg>Repo name opens the source</span>
+            </p>
+          </div>
+        </header>
 
-        <div class="group">
-          <h3 class="group-title">Learning sites</h3>
-          <ul class="projects">
-            <li class="project">
-              <div class="project-head">
-                <h4><a href="https://github.com/mleprep/mleprep.github.io">SDE &amp; MLE Prep</a></h4>
-                <span class="repo">mleprep/mleprep.github.io</span>
+        <h3 class="group-label reveal">Learning sites <span>03</span></h3>
+        <ul class="cards three">
+          <!-- SDE & MLE Prep -->
+          <li class="reveal">
+            <article class="card surface" style="--glow: 91 140 255">
+              <div class="art" aria-hidden="true">
+                <svg viewBox="0 0 400 160" preserveAspectRatio="xMidYMid meet" focusable="false">
+                  <defs><filter id="glow-a" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3"/></filter></defs>
+                  <g>
+                    <rect x="34" y="32" width="30" height="7" rx="3.5" fill="#8b7bff"/><rect x="70" y="32" width="74" height="7" rx="3.5" fill="#5b8cff"/>
+                    <rect x="50" y="50" width="24" height="7" rx="3.5" fill="#8b7bff"/><rect x="80" y="50" width="58" height="7" rx="3.5" fill="#3dd6f5" opacity=".8"/>
+                    <rect x="66" y="68" width="96" height="7" rx="3.5" fill="#5b8cff" opacity=".45"/>
+                    <rect x="66" y="86" width="40" height="7" rx="3.5" fill="#8b7bff" opacity=".8"/><rect x="112" y="86" width="46" height="7" rx="3.5" fill="#3dd6f5" opacity=".6"/>
+                    <rect x="50" y="104" width="34" height="7" rx="3.5" fill="#8b7bff"/><rect x="90" y="104" width="56" height="7" rx="3.5" fill="#5b8cff" opacity=".6"/>
+                  </g>
+                  <text x="34" y="138" font-family="Geist Mono, ui-monospace, monospace" font-size="10.5" fill="#4ade80">&#10003; all tests passed</text>
+                  <path d="M240 50L295 40M240 50L295 68M240 50L295 96M240 50L295 124M240 80L295 40M240 80L295 68M240 80L295 96M240 80L295 124M240 110L295 40M240 110L295 68M240 110L295 96M240 110L295 124M295 40L350 65M295 40L350 95M295 68L350 65M295 68L350 95M295 96L350 65M295 96L350 95M295 124L350 65M295 124L350 95" stroke="#7cc8ff" stroke-opacity=".22" fill="none"/>
+                  <path d="M240 80L295 68L350 65" stroke="#3dd6f5" stroke-width="3" fill="none" filter="url(#glow-a)"/>
+                  <path d="M240 80L295 68L350 65" stroke="#3dd6f5" stroke-width="1.6" fill="none"/>
+                  <g fill="#070c18" stroke="#7cc8ff" stroke-width="1.4">
+                    <circle cx="240" cy="50" r="5"/><circle cx="240" cy="110" r="5"/>
+                    <circle cx="295" cy="40" r="5"/><circle cx="295" cy="96" r="5"/><circle cx="295" cy="124" r="5"/>
+                    <circle cx="350" cy="95" r="5"/>
+                  </g>
+                  <g fill="#3dd6f5"><circle cx="240" cy="80" r="5.5"/><circle cx="295" cy="68" r="5.5"/><circle cx="350" cy="65" r="5.5"/></g>
+                </svg>
               </div>
-              <p>Interview prep for software and machine learning engineers: 477 algorithm problems with Python, Java and Go solutions and an in-browser test runner, plus guides to system design and ML / deep learning.</p>
-              <div class="meta">
+              <div class="card-body">
+                <div class="card-meta"><span>Interview prep</span><span class="status">Live</span></div>
+                <h4><a href="https://mleprep.github.io/">SDE &amp; MLE Prep<svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#i-arrow"/></svg></a></h4>
+                <a class="repo" href="https://github.com/mleprep/mleprep.github.io" aria-label="Source code: mleprep/mleprep.github.io on GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-github"/></svg>mleprep/mleprep.github.io</a>
+                <p class="desc">477 algorithm problems with Python, Java and Go solutions and an in-browser test runner, plus guides to system design and ML / deep learning.</p>
+                <p class="local"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-local"/></svg>No sign-up &middot; progress saved in your browser</p>
+                <p class="for"><b>Made for</b>Software and ML engineers getting ready for interviews.</p>
                 <ul class="tags" aria-label="Technologies"><li>Python</li><li>Java</li><li>Go</li><li>JavaScript</li></ul>
-                <div class="links"><a href="https://mleprep.github.io/">Live site</a><a href="https://github.com/mleprep/mleprep.github.io">Source</a></div>
               </div>
-            </li>
-            <li class="project">
-              <div class="project-head">
-                <h4><a href="https://github.com/alberta-edu/ab_edu">Alberta Edu</a></h4>
-                <span class="repo">alberta-edu/ab_edu</span>
-              </div>
-              <p>A free learning site for Alberta&rsquo;s elementary curriculum in ELAL, Math, Science and Social Studies: interactive lessons, three levels of practice with worked solutions, and spaced review. No accounts or tracking.</p>
-              <div class="meta">
-                <ul class="tags" aria-label="Technologies"><li>Astro</li><li>TypeScript</li></ul>
-                <div class="links"><a href="https://alberta-edu.github.io/ab_edu/">Live site</a><a href="https://github.com/alberta-edu/ab_edu">Source</a></div>
-              </div>
-            </li>
-            <li class="project">
-              <div class="project-head">
-                <h4><a href="https://github.com/shici-poem/poems">Classical Chinese Poems<span class="zh" lang="zh-Hans">诗词</span></a></h4>
-                <span class="repo">shici-poem/poems</span>
-              </div>
-              <p>378 well-loved Chinese poems, from the <em>Book of Songs</em> to the Qing dynasty, each with pinyin, an English verse translation, background notes, read-aloud and an ink-wash painting drawn in the browser.</p>
-              <div class="meta">
-                <ul class="tags" aria-label="Technologies"><li>JavaScript</li><li>Python</li></ul>
-                <div class="links"><a href="https://shici-poem.github.io/poems/">Live site</a><a href="https://github.com/shici-poem/poems">Source</a></div>
-              </div>
-            </li>
-          </ul>
-        </div>
+            </article>
+          </li>
 
-        <div class="group">
-          <h3 class="group-title">Game mods</h3>
-          <ul class="projects">
-            <li class="project">
-              <div class="project-head">
-                <h4><a href="https://github.com/the-cozy-studio/city_skylines_casual_city">Casual City</a></h4>
-                <span class="repo">the-cozy-studio/city_skylines_casual_city</span>
+          <!-- Alberta Edu -->
+          <li class="reveal" style="--d:1">
+            <article class="card surface" style="--glow: 61 214 245">
+              <div class="art" aria-hidden="true">
+                <svg viewBox="0 0 400 160" preserveAspectRatio="xMidYMid meet" focusable="false">
+                  <g stroke-width="1.2">
+                    <rect x="45" y="32" width="64" height="64" rx="14" fill="rgba(124,200,255,.08)" stroke="rgba(124,200,255,.4)"/>
+                    <rect x="127" y="32" width="64" height="64" rx="14" fill="rgba(61,214,245,.08)" stroke="rgba(61,214,245,.4)"/>
+                    <rect x="209" y="32" width="64" height="64" rx="14" fill="rgba(164,147,255,.08)" stroke="rgba(164,147,255,.4)"/>
+                    <rect x="291" y="32" width="64" height="64" rx="14" fill="rgba(91,140,255,.08)" stroke="rgba(91,140,255,.45)"/>
+                  </g>
+                  <text x="77" y="74" text-anchor="middle" font-family="Instrument Serif, Georgia, serif" font-size="30" fill="#a6dcff">Aa</text>
+                  <g font-family="Geist Mono, ui-monospace, monospace" font-size="17" fill="#3dd6f5" text-anchor="middle">
+                    <text x="148" y="61">+</text><text x="170" y="61">&#8722;</text><text x="148" y="84">&#215;</text><text x="170" y="84">&#247;</text>
+                  </g>
+                  <g fill="none" stroke="#b3a8ff" stroke-width="1.4">
+                    <ellipse cx="241" cy="64" rx="20" ry="7.5"/><ellipse cx="241" cy="64" rx="20" ry="7.5" transform="rotate(60 241 64)"/><ellipse cx="241" cy="64" rx="20" ry="7.5" transform="rotate(120 241 64)"/>
+                  </g>
+                  <circle cx="241" cy="64" r="3" fill="#b3a8ff"/>
+                  <g fill="none" stroke="#7cb4ff" stroke-width="1.4">
+                    <circle cx="323" cy="64" r="18"/><ellipse cx="323" cy="64" rx="8" ry="18"/><path d="M305 64h36M308 54q15 4 30 0M308 74q15-4 30 0"/>
+                  </g>
+                  <g font-family="Geist Mono, ui-monospace, monospace" font-size="9" letter-spacing="1.5" fill="#7f8ca6" text-anchor="middle">
+                    <text x="77" y="116">ELAL</text><text x="159" y="116">MATH</text><text x="241" y="116">SCIENCE</text><text x="323" y="116">SOCIAL</text>
+                  </g>
+                  <defs><linearGradient id="prog-b" x1="0" x2="1"><stop offset="0" stop-color="#3dd6f5"/><stop offset="1" stop-color="#5b8cff"/></linearGradient></defs>
+                  <rect x="45" y="132" width="310" height="4" rx="2" fill="rgba(148,170,214,.14)"/>
+                  <rect x="45" y="132" width="206" height="4" rx="2" fill="url(#prog-b)"/>
+                </svg>
               </div>
-              <p>A mod for <em>Cities: Skylines</em> that makes for more relaxed play: no flooding, a traffic-volume slider and always-sunny weather, each switchable in the game&rsquo;s options. Runs on Windows and macOS.</p>
-              <div class="meta">
+              <div class="card-body">
+                <div class="card-meta"><span>Elementary learning</span><span class="status">Live</span></div>
+                <h4><a href="https://alberta-edu.github.io/ab_edu/">Alberta Edu<svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#i-arrow"/></svg></a></h4>
+                <a class="repo" href="https://github.com/alberta-edu/ab_edu" aria-label="Source code: alberta-edu/ab_edu on GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-github"/></svg>alberta-edu/ab_edu</a>
+                <p class="desc">A free learning site for Alberta&rsquo;s elementary curriculum in ELAL, Math, Science and Social Studies: interactive lessons, three levels of practice with worked solutions, and spaced review.</p>
+                <p class="local"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-local"/></svg>No sign-up &middot; progress saved in your browser</p>
+                <p class="for"><b>Made for</b>Elementary students in Alberta, and the families and teachers who help them.</p>
+                <ul class="tags" aria-label="Technologies"><li>Astro</li><li>TypeScript</li></ul>
+              </div>
+            </article>
+          </li>
+
+          <!-- Classical Chinese Poems -->
+          <li class="reveal" style="--d:2">
+            <article class="card surface" style="--glow: 164 147 255">
+              <div class="art" aria-hidden="true">
+                <svg viewBox="0 0 400 160" preserveAspectRatio="xMidYMid meet" focusable="false">
+                  <defs>
+                    <radialGradient id="moon-c"><stop offset="0" stop-color="#f4f1e6"/><stop offset=".52" stop-color="#ebe8de"/><stop offset=".54" stop-color="#cfd9ff" stop-opacity=".2"/><stop offset="1" stop-color="#cfd9ff" stop-opacity="0"/></radialGradient>
+                  </defs>
+                  <circle cx="282" cy="48" r="36" fill="url(#moon-c)"/>
+                  <path d="M114 46q4-4 8 0q4-4 8 0M138 36q3-3 6 0q3-3 6 0" stroke="#9aa7bf" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+                  <path d="M0 118C40 88 70 70 110 95S170 58 210 84S290 70 330 92S380 82 400 90V160H0Z" fill="rgba(140,155,210,.16)"/>
+                  <path d="M0 134C50 100 90 110 130 120S200 92 250 114S340 104 400 124V160H0Z" fill="rgba(96,112,176,.26)"/>
+                  <path d="M0 150C60 130 120 140 170 145S260 130 310 142S370 138 400 146V160H0Z" fill="rgba(36,50,96,.75)"/>
+                  <g font-family="Noto Serif SC, Songti SC, SimSun, serif" font-size="14" fill="#dfe6f5" fill-opacity=".72" text-anchor="middle">
+                    <text x="364" y="34">&#24202;</text><text x="364" y="52">&#21069;</text><text x="364" y="70">&#26126;</text><text x="364" y="88">&#26376;</text><text x="364" y="106">&#20809;</text>
+                  </g>
+                  <rect x="354" y="114" width="20" height="20" rx="3" fill="#d9483b"/>
+                  <text x="364" y="129" text-anchor="middle" font-family="Noto Serif SC, Songti SC, SimSun, serif" font-size="13" fill="#fff4ec">&#35799;</text>
+                </svg>
+              </div>
+              <div class="card-body">
+                <div class="card-meta"><span>Chinese culture</span><span class="status">Live</span></div>
+                <h4><a href="https://shici-poem.github.io/poems/">Classical Chinese Poems<span class="zh" lang="zh-Hans">诗词</span><svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#i-arrow"/></svg></a></h4>
+                <a class="repo" href="https://github.com/shici-poem/poems" aria-label="Source code: shici-poem/poems on GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-github"/></svg>shici-poem/poems</a>
+                <p class="desc">378 well-loved Chinese poems, from the <em>Book of Songs</em> to the Qing dynasty, each with pinyin, an English verse translation, background notes, read-aloud and an ink-wash painting drawn in the browser.</p>
+                <p class="local"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-local"/></svg>No sign-up &middot; progress saved in your browser</p>
+                <p class="for"><b>Made for</b>Anyone curious about Chinese poetry and culture, in Chinese or in English.</p>
+                <ul class="tags" aria-label="Technologies"><li>JavaScript</li><li>Python</li></ul>
+              </div>
+            </article>
+          </li>
+        </ul>
+
+        <h3 class="group-label reveal">Game mods <span>02</span></h3>
+        <ul class="cards">
+          <!-- Casual City -->
+          <li class="reveal">
+            <article class="card surface" style="--glow: 124 200 255">
+              <div class="art" aria-hidden="true">
+                <svg viewBox="0 0 400 160" preserveAspectRatio="xMidYMid meet" focusable="false">
+                  <defs>
+                    <radialGradient id="sun-d"><stop offset="0" stop-color="#ffe08a"/><stop offset=".5" stop-color="#ffd166"/><stop offset=".52" stop-color="#ffd166" stop-opacity=".22"/><stop offset="1" stop-color="#ffd166" stop-opacity="0"/></radialGradient>
+                    <pattern id="win-d" width="8" height="10" patternUnits="userSpaceOnUse"><rect x="2" y="2" width="3" height="4" fill="#ffd479" opacity=".55"/></pattern>
+                  </defs>
+                  <circle cx="330" cy="44" r="40" fill="url(#sun-d)"/>
+                  <path d="M330 8v-6M330 86v-6M294 44h-6M372 44h-6M304 18l-4-4M356 18l4-4" stroke="#ffd166" stroke-opacity=".5" stroke-width="1.5" stroke-linecap="round"/>
+                  <g fill="rgba(91,140,255,.16)" stroke="rgba(124,200,255,.42)" stroke-width="1">
+                    <rect x="28" y="92" width="38" height="48"/><rect x="70" y="66" width="34" height="74"/><rect x="108" y="100" width="30" height="40"/>
+                    <rect x="142" y="54" width="44" height="86"/><rect x="190" y="86" width="34" height="54"/><rect x="228" y="62" width="40" height="78"/>
+                    <rect x="272" y="98" width="30" height="42"/><rect x="306" y="80" width="42" height="60"/><rect x="352" y="104" width="22" height="36"/>
+                  </g>
+                  <g fill="url(#win-d)">
+                    <rect x="32" y="98" width="30" height="38"/><rect x="74" y="72" width="26" height="64"/><rect x="112" y="106" width="22" height="30"/>
+                    <rect x="146" y="60" width="36" height="76"/><rect x="194" y="92" width="26" height="44"/><rect x="232" y="68" width="32" height="64"/>
+                    <rect x="276" y="104" width="22" height="32"/><rect x="310" y="86" width="34" height="50"/><rect x="356" y="110" width="14" height="26"/>
+                  </g>
+                  <path d="M16 140H384" stroke="rgba(124,200,255,.5)"/>
+                  <path d="M20 150H380" stroke="rgba(148,170,214,.35)" stroke-dasharray="10 8"/>
+                </svg>
+              </div>
+              <div class="card-body">
+                <div class="card-meta"><span>Cities: Skylines mod</span><span class="status mod">Mod</span></div>
+                <h4><a href="https://github.com/the-cozy-studio/city_skylines_casual_city">Casual City<svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#i-arrow"/></svg></a></h4>
+                <a class="repo" href="https://github.com/the-cozy-studio/city_skylines_casual_city" aria-label="Source code: the-cozy-studio/city_skylines_casual_city on GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-github"/></svg>the-cozy-studio/city_skylines_casual_city</a>
+                <p class="desc">A mod for <em>Cities: Skylines</em> that makes for more relaxed play: no flooding, a traffic-volume slider and always-sunny weather, each switchable in the game&rsquo;s options. Runs on Windows and macOS.</p>
+                <p class="for"><b>Made for</b>Players who would rather build a calm, cozy city than fight disasters.</p>
                 <ul class="tags" aria-label="Technologies"><li>C#</li><li>Harmony</li></ul>
-                <div class="links"><a href="https://github.com/the-cozy-studio/city_skylines_casual_city">Source</a></div>
               </div>
-            </li>
-            <li class="project">
-              <div class="project-head">
-                <h4><a href="https://github.com/the-cozy-studio/holocure_modder">HoloCure Modder</a></h4>
-                <span class="repo">the-cozy-studio/holocure_modder</span>
+            </article>
+          </li>
+
+          <!-- HoloCure Modder -->
+          <li class="reveal" style="--d:1">
+            <article class="card surface" style="--glow: 139 123 255">
+              <div class="art" aria-hidden="true">
+                <svg viewBox="0 0 400 160" preserveAspectRatio="xMidYMid meet" focusable="false">
+                  <g font-family="Geist Mono, ui-monospace, monospace" font-size="11" fill="#9aa7bf" letter-spacing="1">
+                    <text x="34" y="48">ATK</text><text x="34" y="72">SPD</text><text x="34" y="96">CRT</text><text x="34" y="120">HASTE</text>
+                  </g>
+                  <g fill="rgba(148,170,214,.12)">
+                    <rect x="96" y="39" width="216" height="9" rx="2"/><rect x="96" y="63" width="216" height="9" rx="2"/><rect x="96" y="87" width="216" height="9" rx="2"/><rect x="96" y="111" width="216" height="9" rx="2"/>
+                  </g>
+                  <g fill="#8b7bff">
+                    <rect x="96" y="39" width="18" height="9" rx="2"/><rect x="118" y="39" width="18" height="9" rx="2"/><rect x="140" y="39" width="18" height="9" rx="2"/><rect x="162" y="39" width="18" height="9" rx="2"/><rect x="184" y="39" width="18" height="9" rx="2"/><rect x="206" y="39" width="18" height="9" rx="2"/><rect x="228" y="39" width="18" height="9" rx="2" fill="#b3a8ff"/>
+                    <rect x="96" y="63" width="18" height="9" rx="2"/><rect x="118" y="63" width="18" height="9" rx="2"/><rect x="140" y="63" width="18" height="9" rx="2"/><rect x="162" y="63" width="18" height="9" rx="2" fill="#b3a8ff"/>
+                    <rect x="96" y="87" width="18" height="9" rx="2"/><rect x="118" y="87" width="18" height="9" rx="2"/><rect x="140" y="87" width="18" height="9" rx="2"/><rect x="162" y="87" width="18" height="9" rx="2"/><rect x="184" y="87" width="18" height="9" rx="2"/><rect x="206" y="87" width="18" height="9" rx="2"/><rect x="228" y="87" width="18" height="9" rx="2"/><rect x="250" y="87" width="18" height="9" rx="2"/><rect x="272" y="87" width="18" height="9" rx="2" fill="#b3a8ff"/>
+                    <rect x="96" y="111" width="18" height="9" rx="2"/><rect x="118" y="111" width="18" height="9" rx="2"/><rect x="140" y="111" width="18" height="9" rx="2"/><rect x="162" y="111" width="18" height="9" rx="2"/><rect x="184" y="111" width="18" height="9" rx="2" fill="#b3a8ff"/>
+                  </g>
+                  <g>
+                    <rect x="330" y="36" width="30" height="15" rx="7.5" fill="rgba(139,123,255,.45)"/><circle cx="352.5" cy="43.5" r="5" fill="#fff"/>
+                    <rect x="330" y="60" width="30" height="15" rx="7.5" fill="rgba(148,170,214,.18)"/><circle cx="337.5" cy="67.5" r="5" fill="#7f8ca6"/>
+                    <rect x="330" y="84" width="30" height="15" rx="7.5" fill="rgba(139,123,255,.45)"/><circle cx="352.5" cy="91.5" r="5" fill="#fff"/>
+                    <rect x="330" y="108" width="30" height="15" rx="7.5" fill="rgba(139,123,255,.45)"/><circle cx="352.5" cy="115.5" r="5" fill="#fff"/>
+                  </g>
+                  <text x="34" y="146" font-family="Geist Mono, ui-monospace, monospace" font-size="10" fill="#6b7893">save.dat &#8594; backup &#10003;</text>
+                </svg>
               </div>
-              <p>Modding tools for <em>HoloCure</em>: a save-file editor with automatic backups, and an in-game mod that controls which stat upgrades and stamps can appear during a run.</p>
-              <div class="meta">
+              <div class="card-body">
+                <div class="card-meta"><span>HoloCure tools</span><span class="status mod">Mod</span></div>
+                <h4><a href="https://github.com/the-cozy-studio/holocure_modder">HoloCure Modder<svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#i-arrow"/></svg></a></h4>
+                <a class="repo" href="https://github.com/the-cozy-studio/holocure_modder" aria-label="Source code: the-cozy-studio/holocure_modder on GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-github"/></svg>the-cozy-studio/holocure_modder</a>
+                <p class="desc">Modding tools for <em>HoloCure</em>: a save-file editor with automatic backups, and an in-game mod that controls which stat upgrades and stamps can appear during a run.</p>
+                <p class="for"><b>Made for</b>Players who like to tinker with their runs.</p>
                 <ul class="tags" aria-label="Technologies"><li>C++</li><li>Python</li></ul>
-                <div class="links"><a href="https://github.com/the-cozy-studio/holocure_modder">Source</a></div>
               </div>
-            </li>
-          </ul>
-        </div>
+            </article>
+          </li>
+        </ul>
       </div>
     </section>
 
+    <!-- ============ Music ============ -->
     <section class="block" id="music" aria-labelledby="music-title">
-      <div class="wrap music">
-        <div>
-          <h2 id="music-title">Off the clock</h2>
+      <div class="wrap">
+        <header class="section-head">
+          <div>
+            <p class="kicker reveal"><span class="kn">02</span>Off the clock</p>
+            <h2 class="reveal" style="--d:1" id="music-title">From one keyboard <em>to another</em></h2>
+          </div>
+          <p class="intro reveal" style="--d:2">When I&rsquo;m not writing code, I&rsquo;m usually at the piano, playing or just listening. Bach, Chopin, Debussy and Rachmaninoff are the composers I keep coming back to.</p>
+        </header>
+
+        <div class="music-lead">
+          <blockquote class="quote reveal">Baroque, Romantic and Impressionist music give us so much room to <em>imagine</em>. Anyone can step into that world as an equal, and it has a quiet way of <em>healing</em> us.</blockquote>
+          <div class="listen surface reveal js-only" style="--glow: 139 123 255">
+            <div>
+              <p class="kicker">Listening room</p>
+              <h3>Rachmaninoff</h3>
+              <p class="work">Second Piano Concerto in C minor</p>
+              <p class="sub">A few of my favourite moments. Press play and keep browsing; the music carries on in the background.</p>
+              <p class="credit">Public-domain recording from <a href="https://musopen.org/">Musopen</a>, via <a href="https://commons.wikimedia.org/wiki/File:Sergei_Rachmaninoff_-_piano_concerto_no._2_in_c_minor,_op._18_-_iii._allegro_scherzando.ogg">Wikimedia Commons</a>.</p>
+            </div>
+            <ol class="tracks">
+              <li>
+                <button class="track" type="button" data-track="0" aria-pressed="false">
+                  <span class="tnum" aria-hidden="true">I</span>
+                  <span class="tname">The piano theme<small>Moderato: the piano sings the lyrical second theme</small></span>
+                  <span class="tdur">1:34</span>
+                  <span class="tbtn" aria-hidden="true"><svg class="i-play" viewBox="0 0 16 16"><path d="M5 3.2v9.6l7.6-4.8z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16"><path d="M4.5 3h2.4v10H4.5zM9.1 3h2.4v10H9.1z" fill="currentColor"/></svg></span>
+                </button>
+              </li>
+              <li>
+                <button class="track" type="button" data-track="1" aria-pressed="false">
+                  <span class="tnum" aria-hidden="true">III</span>
+                  <span class="tname">The lyrical theme<small>Allegro scherzando: first the oboe and violas, then the piano</small></span>
+                  <span class="tdur">1:30</span>
+                  <span class="tbtn" aria-hidden="true"><svg class="i-play" viewBox="0 0 16 16"><path d="M5 3.2v9.6l7.6-4.8z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16"><path d="M4.5 3h2.4v10H4.5zM9.1 3h2.4v10H9.1z" fill="currentColor"/></svg></span>
+                </button>
+              </li>
+              <li>
+                <button class="track" type="button" data-track="2" aria-pressed="false">
+                  <span class="tnum" aria-hidden="true">III</span>
+                  <span class="tname">The grand finale<small>The same theme returns Maestoso, with full orchestra</small></span>
+                  <span class="tdur">1:34</span>
+                  <span class="tbtn" aria-hidden="true"><svg class="i-play" viewBox="0 0 16 16"><path d="M5 3.2v9.6l7.6-4.8z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16"><path d="M4.5 3h2.4v10H4.5zM9.1 3h2.4v10H9.1z" fill="currentColor"/></svg></span>
+                </button>
+              </li>
+            </ol>
+          </div>
         </div>
-        <div>
-          <p class="quote">I love classical piano music, both listening to it and playing it.</p>
-          <p>Learning a piece asks for the same things good software does: patience, steady practice and close attention to detail.</p>
-        </div>
-        <div class="keyboard" aria-hidden="true">
-          <svg xmlns="http://www.w3.org/2000/svg" focusable="false">
-            <defs>
-              <pattern id="octave" width="168" height="88" patternUnits="userSpaceOnUse">
-                <rect class="kw" width="168" height="88"/>
-                <path class="kl" d="M.5 0V88M24.5 0V88M48.5 0V88M72.5 0V88M96.5 0V88M120.5 0V88M144.5 0V88"/>
-                <rect class="kb" x="17" width="14" height="54" rx="2"/>
-                <rect class="kb" x="41" width="14" height="54" rx="2"/>
-                <rect class="kb" x="89" width="14" height="54" rx="2"/>
-                <rect class="kb" x="113" width="14" height="54" rx="2"/>
-                <rect class="kb" x="137" width="14" height="54" rx="2"/>
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#octave)"/>
-            <!-- A C-major chord held in the second octave -->
-            <g transform="translate(168 0)">
-              <rect class="kp" x="1" width="23" height="88"/>
-              <rect class="kp" x="49" width="23" height="88"/>
-              <rect class="kp" x="97" width="23" height="88"/>
-              <path class="kl" d="M.5 0V88M24.5 0V88M48.5 0V88M72.5 0V88M96.5 0V88M120.5 0V88"/>
-              <rect class="kb" x="17" width="14" height="54" rx="2"/>
-              <rect class="kb" x="41" width="14" height="54" rx="2"/>
-              <rect class="kb" x="89" width="14" height="54" rx="2"/>
-              <rect class="kb" x="113" width="14" height="54" rx="2"/>
-            </g>
-          </svg>
+
+        <ul class="eras">
+          <li class="reveal">
+            <article class="era surface" style="--glow: 124 200 255">
+              <svg class="glyph" viewBox="0 0 160 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" focusable="false">
+                <path d="M0 24C13 6 27 6 40 24S67 42 80 24S107 6 120 24S147 42 160 24"/>
+                <path d="M0 24C13 42 27 42 40 24S67 6 80 24S107 42 120 24S147 6 160 24" opacity=".5"/>
+                <g fill="currentColor" stroke="none"><circle cx="40" cy="24" r="3"/><circle cx="80" cy="24" r="3"/><circle cx="120" cy="24" r="3"/></g>
+              </svg>
+              <p class="era-name">Baroque</p>
+              <ul class="composers"><li><span class="cn">Johann Sebastian Bach</span><span class="cy">1685&ndash;1750</span></li></ul>
+              <p>Independent voices, each clear on its own, woven into one design. Counterpoint feels a lot like well-built software.</p>
+            </article>
+          </li>
+          <li class="reveal" style="--d:1">
+            <article class="era surface" style="--glow: 139 123 255">
+              <svg class="glyph" viewBox="0 0 160 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" focusable="false">
+                <path d="M0 24Q10 21 20 24T40 24Q50 17 60 24T80 24Q90 12 100 24T120 24Q130 6 140 24T160 24"/>
+                <path d="M0 40L160 32M0 40L160 46" opacity=".45"/>
+              </svg>
+              <p class="era-name">Romantic</p>
+              <ul class="composers">
+                <li><span class="cn">Fr&eacute;d&eacute;ric Chopin</span><span class="cy">1810&ndash;1849</span></li>
+                <li><span class="cn">Sergei Rachmaninoff</span><span class="cy">1873&ndash;1943</span></li>
+              </ul>
+              <p>Music that speaks straight from the heart, from Chopin&rsquo;s intimate nocturnes to the sweeping melodies of Rachmaninoff&rsquo;s Second Concerto.</p>
+            </article>
+          </li>
+          <li class="reveal" style="--d:2">
+            <article class="era surface" style="--glow: 61 214 245">
+              <svg class="glyph" viewBox="0 0 160 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" focusable="false">
+                <circle cx="118" cy="13" r="8" fill="currentColor" stroke="none" opacity=".9"/>
+                <path d="M8 34h34M52 34h20M84 34h40M136 34h16M22 41h24M58 41h44M112 41h22M38 47h18M74 47h26" opacity=".7"/>
+              </svg>
+              <p class="era-name">Impressionism</p>
+              <ul class="composers"><li><span class="cn">Claude Debussy</span><span class="cy">1862&ndash;1918</span></li></ul>
+              <p>Less about telling a story, more about color, light and atmosphere. <em>Clair de lune</em> paints moonlight with sound.</p>
+            </article>
+          </li>
+        </ul>
+
+        <div class="piano surface reveal js-only" id="piano">
+          <div class="piano-top">
+            <div class="track-info">
+              <span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+              <div>
+                <p class="track-title">Bach, Prelude in C major</p>
+                <p class="track-sub" id="piano-status" aria-live="polite">Tap any key, or play the opening bars.</p>
+              </div>
+            </div>
+            <button class="btn primary play" id="play" type="button" aria-pressed="false">
+              <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.2v9.6l7.6-4.8z" fill="currentColor"/></svg>
+              <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="4" width="8" height="8" rx="1.5" fill="currentColor"/></svg>
+              <span>Play the opening</span>
+            </button>
+          </div>
+          <div class="stage" id="stage" aria-hidden="true"><canvas></canvas></div>
+          <div class="keys" id="keys" aria-hidden="true"></div>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="wrap">
-      <span>Jian (James) Huang &middot; Calgary, Canada</span>
+    <div class="wrap foot-row">
+      <span>&copy; <span id="year">2026</span> Jian (James) Huang &middot; Calgary, Canada</span>
+      <a href="#top">Back to top &uarr;</a>
     </div>
   </footer>
+
+  <div class="dock" id="dock" hidden role="region" aria-label="Background music">
+    <button class="dock-btn dock-toggle" id="dock-toggle" type="button" aria-label="Pause">
+      <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.2v9.6l7.6-4.8z" fill="currentColor"/></svg>
+      <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 3h2.4v10H4.5zM9.1 3h2.4v10H9.1z" fill="currentColor"/></svg>
+    </button>
+    <div class="dock-info">
+      <p class="dock-title"><span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Rachmaninoff, Second Piano Concerto</p>
+      <p class="dock-sub"><span id="dock-track">The piano theme</span><span id="dock-time">0:00</span></p>
+      <div class="dock-bar" aria-hidden="true"><i id="dock-progress"></i></div>
+    </div>
+    <button class="dock-btn" id="dock-next" type="button" aria-label="Next excerpt">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3.2v9.6l7-4.8zM11 3h2v10h-2z" fill="currentColor"/></svg>
+    </button>
+    <button class="dock-btn" id="dock-close" type="button" aria-label="Stop music and close player">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"/></svg>
+    </button>
+  </div>
+
+  <script>
+  (() => {
+    const doc = document.documentElement;
+    const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ---------- Header state & scroll progress ---------- */
+    const header = $('#header');
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const max = doc.scrollHeight - innerHeight;
+        header.classList.toggle('scrolled', scrollY > 8);
+        header.style.setProperty('--p', max > 0 ? Math.min(1, scrollY / max) : 0);
+        ticking = false;
+      });
+    };
+    addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    const io = 'IntersectionObserver' in window;
+
+    /* ---------- Active nav link ---------- */
+    const links = $$('.nav a');
+    if (io) {
+      const nav = new IntersectionObserver(entries => entries.forEach(e => {
+        if (e.isIntersecting) links.forEach(a => a.classList.toggle('active', a.hash === '#' + e.target.id));
+      }), { rootMargin: '-45% 0px -50% 0px' });
+      ['#top', '#work', '#music'].forEach(id => $(id) && nav.observe($(id)));
+    }
+
+    /* ---------- Reveal on scroll ---------- */
+    const reveals = $$('.reveal');
+    if (io && !reduce) {
+      const r = new IntersectionObserver(entries => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); r.unobserve(e.target); }
+      }), { rootMargin: '0px 0px -6% 0px', threshold: .06 });
+      reveals.forEach(el => r.observe(el));
+    } else reveals.forEach(el => el.classList.add('in'));
+
+    /* ---------- Count-up stats ---------- */
+    if (!reduce) $$('[data-count]').forEach((el, i) => {
+      const end = +el.dataset.count, start = performance.now() + 450 + i * 110, dur = 1500;
+      el.textContent = '0';
+      const step = now => {
+        const t = Math.min(1, Math.max(0, (now - start) / dur));
+        el.textContent = Math.round(end * (1 - Math.pow(1 - t, 3)));
+        if (t < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    });
+
+    /* ---------- Calgary clock & year ---------- */
+    try {
+      const fmt = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Edmonton', hour: 'numeric', minute: '2-digit' });
+      const clock = $('#clock');
+      const tick = () => { clock.textContent = 'Calgary ' + fmt.format(new Date()); };
+      tick(); setInterval(tick, 30000);
+    } catch (e) {}
+    $('#year').textContent = new Date().getFullYear();
+
+    /* ---------- Cursor spotlight on cards ---------- */
+    $$('.surface').forEach(el => el.addEventListener('pointermove', e => {
+      const r = el.getBoundingClientRect();
+      el.style.setProperty('--mx', e.clientX - r.left + 'px');
+      el.style.setProperty('--my', e.clientY - r.top + 'px');
+    }));
+
+    /* ---------- Background music: Rachmaninoff excerpts ---------- */
+    const music = (() => {
+      const TRACKS = [
+        { src: 'audio/rach2-i-theme.mp3', mv: 'I', name: 'The piano theme' },
+        { src: 'audio/rach2-iii-theme.mp3', mv: 'III', name: 'The lyrical theme' },
+        { src: 'audio/rach2-iii-finale.mp3', mv: 'III', name: 'The grand finale' },
+      ];
+      const VOL = .75;
+      const el = new Audio();
+      el.preload = 'none';
+      let idx = 0, loaded = -1, fadeRaf = 0, duckTimer = 0, held = false;
+      const soundBtn = $('#sound'), dock = $('#dock'), dockToggle = $('#dock-toggle');
+      const dockTrack = $('#dock-track'), dockTime = $('#dock-time'), dockBar = $('#dock-progress');
+      const trackBtns = $$('[data-track]');
+      const mmss = s => (isFinite(s) ? Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0') : '0:00');
+
+      function fade(to, ms, done) {
+        cancelAnimationFrame(fadeRaf);
+        const from = el.volume, t0 = performance.now();
+        const step = now => {
+          const k = Math.min(1, (now - t0) / ms);
+          el.volume = Math.max(0, Math.min(1, from + (to - from) * k));
+          if (k < 1) fadeRaf = requestAnimationFrame(step); else if (done) done();
+        };
+        fadeRaf = requestAnimationFrame(step);
+      }
+      function render() {
+        const on = !el.paused;
+        doc.classList.toggle('music-on', on);
+        soundBtn.setAttribute('aria-pressed', on);
+        soundBtn.setAttribute('aria-label', on ? 'Pause background music' : 'Play background music: Rachmaninoff, Second Piano Concerto');
+        dock.classList.toggle('playing', on);
+        dockToggle.setAttribute('aria-label', on ? 'Pause' : 'Play');
+        dockTrack.textContent = TRACKS[idx].mv + ' — ' + TRACKS[idx].name;
+        trackBtns.forEach(b => {
+          const cur = +b.dataset.track === idx && loaded !== -1;
+          b.classList.toggle('current', cur);
+          b.classList.toggle('playing', cur && on);
+          b.setAttribute('aria-pressed', cur && on);
+        });
+      }
+      function meta() {
+        if (!('mediaSession' in navigator) || !window.MediaMetadata) return;
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: TRACKS[idx].name, artist: 'Sergei Rachmaninoff',
+          album: 'Second Piano Concerto, movement ' + TRACKS[idx].mv + ' (Musopen, public domain)',
+        });
+      }
+      function showDock() {
+        dock.hidden = false;
+        requestAnimationFrame(() => requestAnimationFrame(() => dock.classList.add('show')));
+      }
+      function play(i) {
+        if (i != null) idx = i;
+        if (loaded !== idx) { el.src = TRACKS[idx].src; loaded = idx; }
+        showDock();
+        el.volume = 0;
+        const p = el.play();
+        if (p && p.catch) p.catch(() => render());
+        fade(VOL, 900);
+        meta(); render();
+      }
+      function pause() { fade(0, 350, () => { el.pause(); render(); }); }
+      function toggle(i) {
+        held = false;
+        if (i != null && i !== idx) return play(i);
+        if (el.paused) play(); else pause();
+      }
+      const bad = new Set();
+      function after(i) {
+        let j = i;
+        do { j = (j + 1) % TRACKS.length; } while (bad.has(j) && j !== i);
+        return j;
+      }
+      function next() { held = false; play(after(idx)); }
+      function close() {
+        held = false; pause();
+        dock.classList.remove('show');
+        setTimeout(() => { if (!dock.classList.contains('show')) dock.hidden = true; }, 320);
+      }
+
+      el.addEventListener('ended', () => {
+        idx = after(idx);
+        el.src = TRACKS[idx].src; loaded = idx;
+        el.play(); meta(); render();
+      });
+      // If an excerpt can't be loaded, hide it and move on to the next one.
+      el.addEventListener('error', () => {
+        if (loaded === -1) return;
+        bad.add(idx);
+        trackBtns.forEach(b => { if (bad.has(+b.dataset.track)) b.closest('li').hidden = true; });
+        if (bad.size < TRACKS.length) play(after(idx)); else close();
+      });
+      el.addEventListener('play', render);
+      el.addEventListener('pause', render);
+      el.addEventListener('timeupdate', () => {
+        dockTime.textContent = mmss(el.currentTime) + ' / ' + mmss(el.duration);
+        dockBar.style.transform = 'scaleX(' + (el.duration ? el.currentTime / el.duration : 0) + ')';
+      });
+
+      soundBtn.addEventListener('click', () => toggle());
+      dockToggle.addEventListener('click', () => toggle());
+      $('#dock-next').addEventListener('click', next);
+      $('#dock-close').addEventListener('click', close);
+      trackBtns.forEach(b => b.addEventListener('click', () => toggle(+b.dataset.track)));
+      if ('mediaSession' in navigator) {
+        try {
+          navigator.mediaSession.setActionHandler('play', () => toggle());
+          navigator.mediaSession.setActionHandler('pause', pause);
+          navigator.mediaSession.setActionHandler('nexttrack', next);
+        } catch (e) {}
+      }
+
+      return {
+        // Lower the music briefly while someone plays the piano keys.
+        duck() {
+          if (el.paused || held) return;
+          fade(.15, 200);
+          clearTimeout(duckTimer);
+          duckTimer = setTimeout(() => { if (!el.paused && !held) fade(VOL, 900); }, 2500);
+        },
+        // Pause for the Bach prelude, and pick up again afterwards.
+        hold() { if (!el.paused) { held = true; fade(0, 300, () => el.pause()); } },
+        release() { if (held) { held = false; play(); } },
+      };
+    })();
+
+    /* ---------- Playable piano ---------- */
+    const keysEl = $('#keys'), stage = $('#stage'), panel = $('#piano'), playBtn = $('#play'), statusEl = $('#piano-status');
+    const NAMES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+    const toMidi = s => { const [, n, o] = s.match(/^([A-G]#?)(\d)$/); return NAMES.indexOf(n) + (+o + 1) * 12; };
+    const isBlack = m => [1, 3, 6, 8, 10].includes(m % 12);
+    const keyMap = new Map();
+    const wideQ = matchMedia('(min-width: 75rem)'), midQ = matchMedia('(min-width: 40rem)');
+
+    function buildKeys() {
+      const [lo, hi] = wideQ.matches ? ['C2', 'C7'] : midQ.matches ? ['C3', 'C6'] : ['A3', 'F5'];
+      const a = toMidi(lo), b = toMidi(hi);
+      let whites = 0;
+      for (let m = a; m <= b; m++) if (!isBlack(m)) whites++;
+      const ww = 100 / whites, frag = document.createDocumentFragment();
+      keyMap.clear();
+      let wi = 0;
+      for (let m = a; m <= b; m++) {
+        const k = document.createElement('span');
+        if (isBlack(m)) {
+          k.className = 'key black';
+          k.style.left = (wi * ww - ww * .3) + '%';
+          k.style.width = (ww * .6) + '%';
+        } else {
+          k.className = 'key white';
+          k.style.left = (wi * ww) + '%';
+          k.style.width = ww + '%';
+          if (m % 12 === 0) k.dataset.label = 'C' + (m / 12 - 1);
+          wi++;
+        }
+        k.dataset.m = m;
+        keyMap.set(m, k);
+        frag.appendChild(k);
+      }
+      keysEl.replaceChildren(frag);
+    }
+    buildKeys();
+    [wideQ, midQ].forEach(q => (q.addEventListener ? q.addEventListener('change', buildKeys) : q.addListener(buildKeys)));
+
+    // A small synthesized piano: a few stretched partials, a felt-like
+    // low-pass that closes over time, a hammer click, and a soft reverb.
+    let ctx = null, master = null, noiseBuf = null;
+    function audio() {
+      if (!ctx) {
+        const AC = window.AudioContext || window.webkitAudioContext;
+        if (!AC) return null;
+        ctx = new AC();
+        const comp = ctx.createDynamicsCompressor();
+        comp.threshold.value = -14; comp.ratio.value = 3;
+        comp.connect(ctx.destination);
+        master = ctx.createGain(); master.gain.value = .5; master.connect(comp);
+        const verb = ctx.createConvolver(), wet = ctx.createGain();
+        const len = Math.floor(ctx.sampleRate * 2.6), ir = ctx.createBuffer(2, len, ctx.sampleRate);
+        for (let c = 0; c < 2; c++) {
+          const d = ir.getChannelData(c);
+          for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 2.8);
+        }
+        verb.buffer = ir; wet.gain.value = .3;
+        master.connect(verb); verb.connect(wet); wet.connect(comp);
+        noiseBuf = ctx.createBuffer(1, Math.floor(ctx.sampleRate * .04), ctx.sampleRate);
+        const nd = noiseBuf.getChannelData(0);
+        for (let i = 0; i < nd.length; i++) nd[i] = Math.random() * 2 - 1;
+      }
+      if (ctx.state === 'suspended') ctx.resume();
+      return ctx;
+    }
+    function tone(m, t, vel, hold, dest) {
+      const out = dest || master;
+      const f = 440 * Math.pow(2, (m - 69) / 12);
+      const ring = Math.max(.8, 4 - (m - 36) * .05);
+      const env = ctx.createGain(), lp = ctx.createBiquadFilter();
+      lp.type = 'lowpass'; lp.Q.value = .3;
+      lp.frequency.setValueAtTime(Math.min(f * 7 + 800, 12000), t);
+      lp.frequency.setTargetAtTime(Math.min(f * 2.2 + 300, 6000), t + .01, ring * .25);
+      const peak = .16 * vel, off = t + Math.max(hold, .32);
+      env.gain.setValueAtTime(0, t);
+      env.gain.linearRampToValueAtTime(peak, t + .004);
+      env.gain.setTargetAtTime(peak * .3, t + .004, .12);
+      env.gain.setTargetAtTime(0, t + .3, ring * .35);
+      env.gain.setTargetAtTime(0, off, .09);
+      lp.connect(env); env.connect(out);
+      const stopAt = off + .7;
+      [[1, 1], [2, .42], [3, .2], [4, .1], [5, .05], [6, .025]].forEach(([n, a]) => {
+        const fn = f * n * Math.sqrt(1 + .0004 * n * n);
+        if (fn > 16000) return;
+        const o = ctx.createOscillator(), g = ctx.createGain();
+        o.frequency.value = fn; o.detune.value = (Math.random() - .5) * 3;
+        g.gain.setValueAtTime(a, t);
+        if (n > 1) g.gain.setTargetAtTime(a * .15, t + .01, .35 / n + .05);
+        o.connect(g); g.connect(lp); o.start(t); o.stop(stopAt);
+      });
+      const nz = ctx.createBufferSource(), bp = ctx.createBiquadFilter(), ng = ctx.createGain();
+      nz.buffer = noiseBuf; bp.type = 'bandpass'; bp.frequency.value = Math.min(f * 3, 6000); bp.Q.value = 1.2;
+      ng.gain.setValueAtTime(.05 * vel, t); ng.gain.exponentialRampToValueAtTime(.0001, t + .035);
+      nz.connect(bp); bp.connect(ng); ng.connect(out); nz.start(t); nz.stop(t + .04);
+    }
+
+    // Notes rise from the keys like light, held as long as the key is down.
+    const cv = stage.querySelector('canvas'), g2 = cv.getContext('2d');
+    let dpr = 1, W = 0, H = 0, rising = [], raf = 0, last = 0;
+    function sizeStage() {
+      const r = stage.getBoundingClientRect();
+      dpr = Math.min(window.devicePixelRatio || 1, 2); W = r.width; H = r.height;
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    }
+    sizeStage();
+    if ('ResizeObserver' in window) new ResizeObserver(sizeStage).observe(stage); else addEventListener('resize', sizeStage);
+    function rise(k, hold) {
+      if (reduce || !g2) return;
+      const kr = k.getBoundingClientRect(), sr = stage.getBoundingClientRect();
+      const black = k.classList.contains('black'), w = Math.max(4, kr.width * (black ? .8 : .56));
+      rising.push({ x: kr.left - sr.left + (kr.width - w) / 2, w, top: H, bottom: H, hold, t: 0, black });
+      if (!raf) { last = performance.now(); raf = requestAnimationFrame(draw); }
+    }
+    function draw(now) {
+      const dt = Math.min(.05, (now - last) / 1000), v = 64;
+      last = now;
+      g2.setTransform(dpr, 0, 0, dpr, 0, 0);
+      g2.clearRect(0, 0, W, H);
+      rising = rising.filter(b => b.bottom > -2);
+      for (const b of rising) {
+        b.t += dt; b.top -= v * dt;
+        if (b.t > b.hold) b.bottom -= v * dt;
+        const h = Math.max(2, b.bottom - b.top), a = Math.max(0, Math.min(1, (b.bottom / H) * 1.3));
+        const grad = g2.createLinearGradient(0, b.top, 0, b.top + h);
+        grad.addColorStop(0, 'rgba(170,220,255,' + (.95 * a) + ')');
+        grad.addColorStop(1, (b.black ? 'rgba(139,123,255,' : 'rgba(91,140,255,') + (.55 * a) + ')');
+        g2.fillStyle = grad; g2.shadowColor = 'rgba(91,140,255,' + (.7 * a) + ')'; g2.shadowBlur = 14;
+        g2.beginPath();
+        if (g2.roundRect) g2.roundRect(b.x, b.top, b.w, h, Math.min(4, b.w / 2, h / 2)); else g2.rect(b.x, b.top, b.w, h);
+        g2.fill();
+      }
+      raf = rising.length ? requestAnimationFrame(draw) : 0;
+    }
+
+    function light(m, hold) {
+      const k = keyMap.get(m);
+      if (!k) return;
+      k.classList.add('on');
+      clearTimeout(k._off);
+      k._off = setTimeout(() => k.classList.remove('on'), Math.max(160, hold * 1000));
+      rise(k, hold);
+    }
+    function strike(m) {
+      const c = audio();
+      if (c) tone(m, c.currentTime + .005, .8, .55);
+      light(m, .3);
+      music.duck();
+    }
+
+    let down = false;
+    keysEl.addEventListener('pointerdown', e => {
+      const k = e.target.closest('.key');
+      if (!k) return;
+      e.preventDefault();
+      down = true; strike(+k.dataset.m);
+    });
+    keysEl.addEventListener('pointerover', e => {
+      if (!down || e.pointerType === 'touch') return;
+      const k = e.target.closest('.key');
+      if (k) strike(+k.dataset.m);
+    });
+    addEventListener('pointerup', () => { down = false; });
+    addEventListener('pointercancel', () => { down = false; });
+
+    // The opening bars of the Prelude in C (BWV 846): each bar's
+    // five-note chord is broken in the same pattern, twice.
+    const BARS = [['C4', 'E4', 'G4', 'C5', 'E5'], ['C4', 'D4', 'A4', 'D5', 'F5'], ['B3', 'D4', 'G4', 'D5', 'F5'], ['C4', 'E4', 'G4', 'C5', 'E5']];
+    const STEP = .19;
+    function score() {
+      const out = [];
+      BARS.forEach(bar => {
+        const m = bar.map(toMidi);
+        for (let h = 0; h < 2; h++) [0, 1, 2, 3, 4, 2, 3, 4].forEach((i, k) => out.push({
+          m: m[i], hold: k === 0 ? 8 : k === 1 ? 7 : 1.4, vel: k === 0 ? .85 : k === 1 ? .62 : (k === 2 || k === 5 ? .56 : .5),
+        }));
+      });
+      out.slice(-8).forEach((n, i) => { n.hold = 8 - i + 9; });   // let the last chord ring
+      return out;
+    }
+
+    const timers = new Set();
+    const later = (fn, ms) => { const id = setTimeout(() => { timers.delete(id); fn(); }, Math.max(0, ms)); timers.add(id); };
+    let seq = [], idx = 0, next = 0, loop = 0, bus = null;
+    function setPlaying(on) {
+      panel.classList.toggle('playing', on);
+      playBtn.setAttribute('aria-pressed', on);
+      playBtn.querySelector('span').textContent = on ? 'Stop' : 'Play the opening';
+      statusEl.textContent = on ? 'Playing the first four bars…' : 'Tap any key, or play the opening bars.';
+    }
+    function tick() {
+      while (idx < seq.length && next < ctx.currentTime + .2) {
+        const n = seq[idx], left = seq.length - idx, dur = n.hold * STEP, at = next;
+        tone(n.m, at, n.vel, dur, bus);
+        later(() => light(n.m, Math.min(dur, 2.4)), (at - ctx.currentTime) * 1000);
+        next += STEP * (left <= 6 ? 1 + (7 - left) * .09 : 1);   // a gentle ritardando
+        idx++;
+      }
+      if (idx >= seq.length) {
+        clearInterval(loop); loop = 0;
+        later(finish, (next - ctx.currentTime) * 1000 + 1800);
+      }
+    }
+    function play() {
+      const c = audio();
+      if (!c) { statusEl.textContent = 'Audio is not available in this browser.'; return; }
+      stop(true);
+      music.hold();
+      bus = c.createGain(); bus.connect(master);
+      seq = score(); idx = 0; next = c.currentTime + .12;
+      setPlaying(true);
+      tick(); loop = setInterval(tick, 30);
+    }
+    function finish() {
+      const b = bus; bus = null;
+      if (b) setTimeout(() => b.disconnect(), 6000);
+      setPlaying(false);
+      music.release();
+    }
+    function stop(silent) {
+      clearInterval(loop); loop = 0;
+      timers.forEach(clearTimeout); timers.clear();
+      if (bus) { const b = bus; b.gain.setTargetAtTime(0, ctx.currentTime, .06); setTimeout(() => b.disconnect(), 500); bus = null; }
+      keyMap.forEach(k => k.classList.remove('on'));
+      if (!silent) { setPlaying(false); music.release(); }
+    }
+    playBtn.addEventListener('click', () => (panel.classList.contains('playing') ? stop() : play()));
+    document.addEventListener('visibilitychange', () => { if (document.hidden && panel.classList.contains('playing')) stop(); });
+  })();
+  </script>
 </body>
 </html>
