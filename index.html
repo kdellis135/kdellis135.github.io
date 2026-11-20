@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jian (James) Huang</title>
+  <meta name="description" content="Jian (James) Huang, Senior Software Engineer in Calgary, Canada. Open-source learning sites, community tools and game mods.">
+  <link rel="canonical" href="https://kdellis135.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Jian (James) Huang">
+  <meta property="og:description" content="Senior Software Engineer in Calgary, Canada. Open-source learning sites, community tools and game mods.">
+  <meta property="og:url" content="https://kdellis135.github.io/">
+  <meta name="theme-color" content="#f8f5ef" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%237d2430'/%3E%3Crect x='6' y='7' width='20' height='18' rx='2' fill='%23fffdf9'/%3E%3Cpath d='M12.67 7v18M19.33 7v18' stroke='%237d2430' stroke-width='1'/%3E%3Crect x='10.67' y='7' width='4' height='10' fill='%231c1a17'/%3E%3Crect x='17.33' y='7' width='4' height='10' fill='%231c1a17'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f8f5ef;
+      --surface: #fffdf9;
+      --text: #1c1a17;
+      --muted: #5f5a52;
+      --line: #e4ded3;
+      --accent: #7d2430;
+      --accent-soft: #f1e4e2;
+      --key-white: #fffdf9;
+      --key-black: #1c1a17;
+      --key-line: #d6cfc2;
+      --key-press: #ebd0cf;
+      --serif: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      --sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --mono: ui-monospace, "SF Mono", "Cascadia Code", Consolas, Menlo, monospace;
+      --gutter: clamp(16px, 4vw, 40px);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121110;
+        --surface: #1a1917;
+        --text: #ece7df;
+        --muted: #a59e93;
+        --line: #2f2c28;
+        --accent: #e3959c;
+        --accent-soft: #2b1d1f;
+        --key-white: #e9e4da;
+        --key-black: #121110;
+        --key-line: #b8b0a3;
+        --key-press: #e2aeb2;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 400 1rem/1.65 var(--sans);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    a { color: inherit; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+    h1, h2, h3, h4, p { margin: 0; }
+
+    .wrap { max-width: 66rem; margin: 0 auto; padding: 0 var(--gutter); }
+
+    .skip {
+      position: absolute; left: -9999px; top: 0;
+      background: var(--text); color: var(--bg); padding: .5rem .9rem; z-index: 10;
+    }
+    .skip:focus { left: 1rem; top: 1rem; }
+
+    /* Header */
+    .site-header { border-bottom: 1px solid var(--line); }
+    .site-header .wrap {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; min-height: 4rem;
+    }
+    .mark {
+      font: 600 1.45rem/1 var(--serif);
+      text-decoration: none; letter-spacing: .02em;
+    }
+    .mark span { color: var(--accent); }
+    .nav { display: flex; gap: clamp(1rem, 3vw, 2rem); font-size: .9rem; font-weight: 500; }
+    .nav a { text-decoration: none; color: var(--muted); }
+    .nav a:hover { color: var(--text); }
+
+    /* Hero */
+    .hero { padding: clamp(4rem, 11vw, 8.5rem) 0 clamp(3.5rem, 8vw, 6rem); }
+    .eyebrow {
+      display: flex; align-items: center; gap: .75rem; flex-wrap: wrap;
+      font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--muted);
+    }
+    .eyebrow::before { content: ""; width: 2rem; height: 1px; background: var(--accent); }
+    .eyebrow .dot { color: var(--accent); }
+    @media (max-width: 34rem) {
+      .eyebrow { flex-direction: column; align-items: flex-start; gap: .2rem; }
+      .eyebrow::before, .eyebrow .dot { display: none; }
+    }
+    h1 {
+      margin-top: 1.25rem;
+      font: 600 clamp(2.75rem, 8vw, 5.25rem)/1.02 var(--serif);
+      letter-spacing: -.015em;
+    }
+    h1 .paren { font-style: italic; font-weight: 500; color: var(--muted); }
+    .lede {
+      margin-top: 1.75rem; max-width: 38rem;
+      font-size: clamp(1.05rem, 2vw, 1.2rem); line-height: 1.7; color: var(--muted);
+    }
+    .lede strong { color: var(--text); font-weight: 500; }
+    .cta { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2.25rem; }
+    .btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .7rem 1.2rem; border-radius: 999px;
+      border: 1px solid var(--line); background: var(--surface);
+      font-size: .92rem; font-weight: 500; text-decoration: none;
+      transition: border-color .15s, background-color .15s, color .15s;
+    }
+    .btn:hover { border-color: var(--muted); }
+    .btn.primary { background: var(--text); color: var(--bg); border-color: var(--text); }
+    .btn.primary:hover { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+    .btn svg { width: 1rem; height: 1rem; }
+
+    /* Sections */
+    section.block { padding: clamp(3.5rem, 8vw, 5.5rem) 0; border-top: 1px solid var(--line); }
+    .section-head { margin-bottom: clamp(2rem, 5vw, 3rem); }
+    h2 {
+      font: 600 clamp(2rem, 4.5vw, 2.75rem)/1.1 var(--serif);
+      letter-spacing: -.01em;
+    }
+    .section-head p { margin-top: .75rem; max-width: 40rem; color: var(--muted); }
+
+    /* Projects */
+    .group { display: grid; gap: .5rem 2rem; }
+    .group + .group { margin-top: clamp(2.5rem, 6vw, 3.5rem); }
+    .group-title {
+      font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--accent);
+      padding-top: 1.6rem;
+    }
+    .projects { list-style: none; margin: 0; padding: 0; }
+    .project { padding: 1.5rem 0; border-top: 1px solid var(--line); }
+    .project-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: .25rem .9rem; }
+    .project h4 { font: 600 1.6rem/1.2 var(--serif); }
+    .project h4 a { text-decoration: none; }
+    .project h4 a:hover { color: var(--accent); }
+    .project h4 .zh { font-family: var(--sans); font-weight: 500; font-size: 1.1rem; color: var(--muted); margin-left: .35rem; }
+    .repo { font: 400 .8rem/1.4 var(--mono); color: var(--muted); overflow-wrap: anywhere; }
+    .project p { margin-top: .6rem; max-width: 44rem; }
+    .meta {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+      gap: .75rem 1.5rem; margin-top: 1rem;
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: .4rem; list-style: none; margin: 0; padding: 0; }
+    .tags li {
+      font-size: .75rem; font-weight: 500; color: var(--muted);
+      padding: .15rem .6rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface);
+    }
+    .links { display: flex; gap: 1.25rem; font-size: .9rem; font-weight: 500; }
+    .links a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+    .links a:hover { border-bottom-color: currentColor; }
+    .links a::after { content: " \2197"; font-size: .85em; }
+
+    @media (min-width: 52rem) {
+      .group { grid-template-columns: 11rem 1fr; }
+      .group-title { position: sticky; top: 1.5rem; align-self: start; }
+    }
+
+    /* Music */
+    .music { display: grid; gap: 2rem; }
+    .music p { max-width: 40rem; font-size: clamp(1.05rem, 2vw, 1.15rem); color: var(--muted); }
+    .music p + p { margin-top: 1rem; }
+    .music .quote {
+      font: italic 500 clamp(1.35rem, 3vw, 1.7rem)/1.4 var(--serif);
+      color: var(--text);
+    }
+    .keyboard {
+      border: 1px solid var(--line); border-radius: 10px; overflow: hidden;
+      background: var(--key-white);
+      box-shadow: 0 1px 0 var(--line), 0 18px 40px -28px rgba(0,0,0,.35);
+    }
+    .keyboard::before { content: ""; display: block; height: 5px; background: var(--accent); }
+    .keyboard svg { display: block; width: 100%; height: 88px; }
+    .kw { fill: var(--key-white); }
+    .kp { fill: var(--key-press); }
+    .kl { stroke: var(--key-line); stroke-width: 1; fill: none; }
+    .kb { fill: var(--key-black); }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--line); padding: 2rem 0 2.5rem; font-size: .88rem; color: var(--muted); }
+    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem 2rem; }
+    footer a { text-decoration: none; }
+    footer a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="mark" href="#top" aria-label="Jian (James) Huang, back to top">J<span>.</span>H</a>
+      <nav class="nav" aria-label="Main">
+        <a href="#work">Projects</a>
+        <a href="#music">Music</a>
+        <a href="https://github.com/kdellis135">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap">
+        <p class="eyebrow">Senior Software Engineer <span class="dot" aria-hidden="true">&middot;</span> Calgary, Canada</p>
+        <h1>Jian <span class="paren">(James)</span> Huang</h1>
+        <p class="lede">I build software for a living, and in my own time I build things to share: <strong>free learning sites</strong>, a <strong>community mapping tool</strong> and a few <strong>game mods</strong>, all open source. Away from the computer keyboard, you will usually find me at the piano.</p>
+        <div class="cta">
+          <a class="btn primary" href="#work">See my projects</a>
+          <a class="btn" href="https://github.com/kdellis135">
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="work-title">Open-source projects</h2>
+          <p>Things I have built and shared in my own time. Every one is public on GitHub.</p>
+        </div>
+
+        <div class="group">
+          <h3 class="group-title">Learning sites</h3>
+          <ul class="projects">
+            <li class="project">
+              <div class="project-head">
+                <h4><a href="https://github.com/mleprep/mleprep.github.io">SDE &amp; MLE Prep</a></h4>
+                <span class="repo">mleprep/mleprep.github.io</span>
+              </div>
+              <p>Interview prep for software and machine learning engineers: 477 algorithm problems with Python, Java and Go solutions and an in-browser test runner, plus guides to system design and ML / deep learning.</p>
+              <div class="meta">
+                <ul class="tags" aria-label="Technologies"><li>Python</li><li>Java</li><li>Go</li><li>JavaScript</li></ul>
+                <div class="links"><a href="https://mleprep.github.io/">Live site</a><a href="https://github.com/mleprep/mleprep.github.io">Source</a></div>
+              </div>
+            </li>
+            <li class="project">
+              <div class="project-head">
+                <h4><a href="https://github.com/alberta-edu/ab_edu">Alberta Edu</a></h4>
+                <span class="repo">alberta-edu/ab_edu</span>
+              </div>
+              <p>A free learning site for Alberta&rsquo;s elementary curriculum in ELAL, Math, Science and Social Studies: interactive lessons, three levels of practice with worked solutions, and spaced review. No accounts or tracking.</p>
+              <div class="meta">
+                <ul class="tags" aria-label="Technologies"><li>Astro</li><li>TypeScript</li></ul>
+                <div class="links"><a href="https://alberta-edu.github.io/ab_edu/">Live site</a><a href="https://github.com/alberta-edu/ab_edu">Source</a></div>
+              </div>
+            </li>
+            <li class="project">
+              <div class="project-head">
+                <h4><a href="https://github.com/shici-poem/poems">Classical Chinese Poems<span class="zh" lang="zh-Hans">诗词</span></a></h4>
+                <span class="repo">shici-poem/poems</span>
+              </div>
+              <p>378 well-loved Chinese poems, from the <em>Book of Songs</em> to the Qing dynasty, each with pinyin, an English verse translation, background notes, read-aloud and an ink-wash painting drawn in the browser.</p>
+              <div class="meta">
+                <ul class="tags" aria-label="Technologies"><li>JavaScript</li><li>Python</li></ul>
+                <div class="links"><a href="https://shici-poem.github.io/poems/">Live site</a><a href="https://github.com/shici-poem/poems">Source</a></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="group">
+          <h3 class="group-title">Community</h3>
+          <ul class="projects">
+            <li class="project">
+              <div class="project-head">
+                <h4><a href="https://github.com/the-cozy-studio/search_parker">Search Parker</a></h4>
+                <span class="repo">the-cozy-studio/search_parker</span>
+              </div>
+              <p>A map portal that helps volunteers coordinate a community search for a missing person, combining live search-coverage data with predicted search zones. The data refreshes every hour through GitHub Actions.</p>
+              <div class="meta">
+                <ul class="tags" aria-label="Technologies"><li>JavaScript</li><li>Leaflet</li><li>Python</li></ul>
+                <div class="links"><a href="https://github.com/the-cozy-studio/search_parker">Source</a></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="group">
+          <h3 class="group-title">Game mods</h3>
+          <ul class="projects">
+            <li class="project">
+              <div class="project-head">
+                <h4><a href="https://github.com/the-cozy-studio/city_skylines_casual_city">Casual City</a></h4>
+                <span class="repo">the-cozy-studio/city_skylines_casual_city</span>
+              </div>
+              <p>A mod for <em>Cities: Skylines</em> that makes for more relaxed play: no flooding, a traffic-volume slider and always-sunny weather, each switchable in the game&rsquo;s options. Runs on Windows and macOS.</p>
+              <div class="meta">
+                <ul class="tags" aria-label="Technologies"><li>C#</li><li>Harmony</li></ul>
+                <div class="links"><a href="https://github.com/the-cozy-studio/city_skylines_casual_city">Source</a></div>
+              </div>
+            </li>
+            <li class="project">
+              <div class="project-head">
+                <h4><a href="https://github.com/the-cozy-studio/holocure_modder">HoloCure Modder</a></h4>
+                <span class="repo">the-cozy-studio/holocure_modder</span>
+              </div>
+              <p>Modding tools for <em>HoloCure</em>: a save-file editor with automatic backups, and an in-game mod that controls which stat upgrades and stamps can appear during a run.</p>
+              <div class="meta">
+                <ul class="tags" aria-label="Technologies"><li>C++</li><li>Python</li></ul>
+                <div class="links"><a href="https://github.com/the-cozy-studio/holocure_modder">Source</a></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="music" aria-labelledby="music-title">
+      <div class="wrap music">
+        <div>
+          <h2 id="music-title">Off the clock</h2>
+        </div>
+        <div>
+          <p class="quote">I love classical piano music, both listening to it and playing it.</p>
+          <p>Learning a piece asks for the same things good software does: patience, steady practice and close attention to detail.</p>
+        </div>
+        <div class="keyboard" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" focusable="false">
+            <defs>
+              <pattern id="octave" width="168" height="88" patternUnits="userSpaceOnUse">
+                <rect class="kw" width="168" height="88"/>
+                <path class="kl" d="M.5 0V88M24.5 0V88M48.5 0V88M72.5 0V88M96.5 0V88M120.5 0V88M144.5 0V88"/>
+                <rect class="kb" x="17" width="14" height="54" rx="2"/>
+                <rect class="kb" x="41" width="14" height="54" rx="2"/>
+                <rect class="kb" x="89" width="14" height="54" rx="2"/>
+                <rect class="kb" x="113" width="14" height="54" rx="2"/>
+                <rect class="kb" x="137" width="14" height="54" rx="2"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#octave)"/>
+            <!-- A C-major chord held in the second octave -->
+            <g transform="translate(168 0)">
+              <rect class="kp" x="1" width="23" height="88"/>
+              <rect class="kp" x="49" width="23" height="88"/>
+              <rect class="kp" x="97" width="23" height="88"/>
+              <path class="kl" d="M.5 0V88M24.5 0V88M48.5 0V88M72.5 0V88M96.5 0V88M120.5 0V88"/>
+              <rect class="kb" x="17" width="14" height="54" rx="2"/>
+              <rect class="kb" x="41" width="14" height="54" rx="2"/>
+              <rect class="kb" x="89" width="14" height="54" rx="2"/>
+              <rect class="kb" x="113" width="14" height="54" rx="2"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>Jian (James) Huang &middot; Calgary, Canada</span>
+      <a href="https://github.com/kdellis135">github.com/kdellis135</a>
+    </div>
+  </footer>
+</body>
+</html>
