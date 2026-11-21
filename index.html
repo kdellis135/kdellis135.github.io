@@ -115,6 +115,9 @@
     }
     .sound:hover { color: var(--text); border-color: var(--line-2); }
     .sound[aria-pressed="true"] { color: #fff; border-color: rgba(91, 140, 255, .5); background: rgba(91, 140, 255, .18); }
+    .music-waiting .sound, .music-waiting .dock-toggle { animation: nudge 1.8s ease-in-out infinite; }
+    @keyframes nudge { 0%, 100% { box-shadow: 0 0 0 0 rgba(91, 140, 255, .55); } 50% { box-shadow: 0 0 0 7px rgba(91, 140, 255, 0); } }
+    @media (prefers-reduced-motion: reduce) { .music-waiting .sound, .music-waiting .dock-toggle { animation: none; } }
     .bars { display: flex; align-items: flex-end; gap: 2px; height: 14px; }
     .bars i { width: 2.5px; border-radius: 2px; background: currentColor; height: 40%; }
     .bars i:nth-child(2) { height: 85%; } .bars i:nth-child(3) { height: 60%; } .bars i:nth-child(4) { height: 30%; }
@@ -465,6 +468,7 @@
     footer { position: relative; padding: 2.2rem 0 2.6rem; font-size: .88rem; color: var(--dim); }
     footer::before { content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: min(100% - 2 * var(--gutter), var(--max)); height: 1px; background: linear-gradient(90deg, transparent, var(--line-2) 20%, var(--line-2) 80%, transparent); }
     .foot-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem 2rem; }
+    .foot-links { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; }
     footer a { text-decoration: none; color: var(--muted); }
     footer a:hover { color: var(--text); }
 
@@ -877,7 +881,10 @@
   <footer>
     <div class="wrap foot-row">
       <span>&copy; <span id="year">2026</span> Jian (James) Huang &middot; Calgary, Canada</span>
-      <a href="#top">Back to top &uarr;</a>
+      <span class="foot-links">
+        <a href="https://www.linkedin.com/in/hjianjames/" rel="me noopener">LinkedIn</a>
+        <a href="#top">Back to top &uarr;</a>
+      </span>
     </div>
   </footer>
 
@@ -980,7 +987,28 @@
       const VOL = .75;
       const el = new Audio();
       el.preload = 'none';
-      let idx = 0, loaded = -1, fadeRaf = 0, duckTimer = 0, held = false;
+      let idx = 0, loaded = -1, fadeRaf = 0, duckTimer = 0, held = false, waiting = false, seekTo = 0;
+
+      // Remember the excerpt and position in this browser, so a return
+      // visit picks up where the last one left off.
+      const KEY = 'bio-music';
+      try {
+        const s = JSON.parse(localStorage.getItem(KEY) || 'null');
+        if (s && TRACKS[s.i]) { idx = s.i; seekTo = Math.max(0, +s.t || 0); }
+      } catch (e) {}
+      let savedAt = 0;
+      function save(force) {
+        const now = Date.now();
+        if (!force && now - savedAt < 2000) return;
+        savedAt = now;
+        const t = loaded === idx && el.readyState > 0 ? el.currentTime : seekTo;
+        try { localStorage.setItem(KEY, JSON.stringify({ i: idx, t: Math.round(t * 10) / 10 })); } catch (e) {}
+      }
+      el.addEventListener('loadedmetadata', () => {
+        if (!seekTo) return;
+        const t = seekTo; seekTo = 0;
+        if (!isFinite(el.duration) || t < el.duration - 1) el.currentTime = t;
+      });
       const soundBtn = $('#sound'), dock = $('#dock'), dockToggle = $('#dock-toggle');
       const dockTrack = $('#dock-track'), dockTime = $('#dock-time'), dockBar = $('#dock-progress');
       const trackBtns = $$('[data-track]');
@@ -1004,6 +1032,9 @@
         dock.classList.toggle('playing', on);
         dockToggle.setAttribute('aria-label', on ? 'Pause' : 'Play');
         dockTrack.textContent = TRACKS[idx].mv + ' — ' + TRACKS[idx].name;
+        if (on) waiting = false;
+        doc.classList.toggle('music-waiting', waiting);
+        if (waiting) dockTime.textContent = 'Tap anywhere to play';
         trackBtns.forEach(b => {
           const cur = +b.dataset.track === idx && loaded !== -1;
           b.classList.toggle('current', cur);
@@ -1023,7 +1054,7 @@
         requestAnimationFrame(() => requestAnimationFrame(() => dock.classList.add('show')));
       }
       function play(i) {
-        if (i != null) idx = i;
+        if (i != null && i !== idx) { idx = i; seekTo = 0; }
         if (loaded !== idx) { el.src = TRACKS[idx].src; loaded = idx; }
         showDock();
         el.volume = 0;
@@ -1054,9 +1085,9 @@
       }
 
       el.addEventListener('ended', () => {
-        idx = after(idx);
+        idx = after(idx); seekTo = 0;
         el.src = TRACKS[idx].src; loaded = idx;
-        el.play(); meta(); render();
+        el.play(); meta(); render(); save(true);
       });
       // If an excerpt can't be loaded, hide it and move on to the next one.
       el.addEventListener('error', () => {
@@ -1070,7 +1101,11 @@
       el.addEventListener('timeupdate', () => {
         dockTime.textContent = mmss(el.currentTime) + ' / ' + mmss(el.duration);
         dockBar.style.transform = 'scaleX(' + (el.duration ? el.currentTime / el.duration : 0) + ')';
+        if (!el.paused) save();
       });
+      el.addEventListener('pause', () => save(true));
+      addEventListener('pagehide', () => save(true));
+      document.addEventListener('visibilitychange', () => { if (document.hidden) save(true); });
 
       soundBtn.addEventListener('click', () => toggle());
       dockToggle.addEventListener('click', () => toggle());
@@ -1085,11 +1120,13 @@
         } catch (e) {}
       }
 
-      // Start playing as soon as the page loads, then loop through every
-      // excerpt. Most browsers block sound until the visitor interacts, so
-      // if autoplay is refused, start on the first click, tap or key press.
+      // Start playing as soon as the page loads (resuming the saved spot),
+      // then loop through every excerpt. Browsers block sound until the
+      // visitor has interacted with the site — always so in a fresh private
+      // window — so if autoplay is refused, start on the first click, tap or
+      // key press anywhere on the page.
       (function autostart() {
-        const events = ['pointerdown', 'keydown', 'touchend'];
+        const events = ['pointerdown', 'mousedown', 'pointerup', 'touchend', 'click', 'keydown'];
         const stopWaiting = () => events.forEach(t => removeEventListener(t, kick, true));
         function kick(e) {
           const t = e.target && e.target.closest ? e.target : null;
@@ -1102,8 +1139,12 @@
           const p = play();
           if (p && p.then) p.then(stopWaiting, () => {}); else stopWaiting();
         }
-        const p = play(0);
-        if (p && p.catch) p.catch(() => events.forEach(t => addEventListener(t, kick, true)));
+        const p = play();
+        if (p && p.catch) p.catch(() => {
+          if (!el.paused || userStopped) return;
+          waiting = true; render();
+          events.forEach(t => addEventListener(t, kick, true));
+        });
       })();
 
       return {
