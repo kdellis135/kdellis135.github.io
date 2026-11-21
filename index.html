@@ -180,6 +180,24 @@
       transition: background-size .25s, color .2s;
     }
     .lede a:hover, .inline-link:hover { color: #fff; background-size: 100% 2px; }
+    .hero-list { list-style: none; margin: 1.6rem 0 0; padding: 0; display: grid; gap: .55rem; max-width: 40rem; }
+    .hero-list li {
+      display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); align-items: baseline; gap: .25rem 1rem;
+      padding: .7rem 1rem; border: 1px solid var(--line); border-radius: 12px; background: rgba(12, 20, 40, .45);
+    }
+    .hero-list a { font-weight: 600; color: var(--text); text-decoration: none; white-space: nowrap; }
+    .hero-list a::after { content: " \2197"; color: var(--dim); font-weight: 400; transition: color .2s; }
+    .hero-list a:hover { color: #fff; }
+    .hero-list a:hover::after { color: var(--sky); }
+    .hero-list span { color: var(--muted); font-size: .95rem; }
+    @media (max-width: 30rem) { .hero-list li { grid-template-columns: 1fr; } }
+    .chips { list-style: none; margin: 1rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: .45rem; }
+    .chips li {
+      display: inline-flex; align-items: center; gap: .45rem; padding: .35rem .7rem; border-radius: 999px;
+      border: 1px solid rgba(124, 200, 255, .25); background: rgba(124, 200, 255, .07);
+      font: 500 .74rem/1.2 var(--mono); color: var(--sky);
+    }
+    .chips li::before { content: "\2713"; color: #86efac; }
     .cta { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2.2rem; }
     .btn {
       display: inline-flex; align-items: center; gap: .55rem; height: 2.95rem; padding: 0 1.3rem; border-radius: 999px; cursor: pointer;
@@ -320,7 +338,9 @@
     }
     .repo:hover { color: var(--text); border-color: var(--line-2); background: rgba(255, 255, 255, .05); }
     .repo svg { width: .95rem; height: .95rem; flex: none; }
-    .desc { margin-top: 1rem; color: var(--muted); }
+    .points { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: .4rem; color: var(--muted); font-size: .95rem; }
+    .points li { position: relative; padding-left: 1.1rem; }
+    .points li::before { content: ""; position: absolute; left: 0; top: .62em; width: .4rem; height: .4rem; border-radius: 2px; background: rgb(var(--glow) / .8); }
     .for { margin: 1rem 0 1.25rem; font-size: .93rem; color: #cfd8ea; }
     .local {
       display: inline-flex; align-items: center; gap: .5rem; align-self: flex-start; margin-top: .9rem;
@@ -339,18 +359,6 @@
     }
     .quote::before { content: ""; position: absolute; left: 0; top: .2em; bottom: .2em; width: 2px; border-radius: 2px; background: var(--grad); }
     .quote em { font-style: italic; color: #fff; }
-    .eras { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(1rem, 1.6vw, 1.5rem); }
-    @media (min-width: 56rem) { .eras { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-    .eras > li { display: flex; }
-    .era { flex: 1; padding: clamp(1.4rem, 2.2vw, 2rem); display: flex; flex-direction: column; }
-    .glyph { width: 100%; max-width: 160px; height: 48px; color: rgb(var(--glow)); }
-    .era { container-type: inline-size; }
-    .era-name { margin-top: 1.4rem; font: 500 .76rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: rgb(var(--glow)); }
-    .composers { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: .35rem; }
-    .composers li { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0 .75rem; }
-    .composers .cn { white-space: nowrap; font: 400 clamp(1.2rem, 8.4cqi, 1.95rem)/1.15 var(--serif); color: #f1f4fb; }
-    .composers .cy { font: 400 .76rem/1 var(--mono); color: var(--dim); }
-    .era p { margin-top: 1rem; color: var(--muted); }
 
     /* Quote beside the listening room on wide screens */
     .music-lead { display: grid; gap: clamp(1.5rem, 3vw, 3.5rem); align-items: center; margin-bottom: clamp(1rem, 1.6vw, 1.5rem); }
@@ -508,7 +516,14 @@
         <div class="hero-grid">
           <div class="hero-copy">
             <p class="tagline reveal" style="--d:2">I build software for a living. In my spare time, I build free things that <em>help people learn</em>.</p>
-            <p class="lede reveal" style="--d:3">So far, that means a study site for <a href="https://alberta-edu.github.io/ab_edu/">Alberta&rsquo;s elementary students</a>, <a href="https://mleprep.github.io/">interview prep</a> for software and ML engineers, and a <a href="https://shici-poem.github.io/poems/">bilingual collection of classical Chinese poems</a> that shares Chinese culture with English readers. Every one is free and needs no sign-up: your progress is saved right in your browser. All the code is open.</p>
+            <ul class="hero-list reveal" style="--d:3">
+              <li><a href="https://alberta-edu.github.io/ab_edu/">Alberta Edu</a><span>Lessons and practice for Alberta&rsquo;s elementary students</span></li>
+              <li><a href="https://mleprep.github.io/">SDE &amp; MLE Prep</a><span>Interview prep for software and ML engineers</span></li>
+              <li><a href="https://shici-poem.github.io/poems/">Chinese Poems</a><span>Classical Chinese poetry, shared in English</span></li>
+            </ul>
+            <ul class="chips reveal" style="--d:3" aria-label="All learning sites are">
+              <li>Free</li><li>No sign-up</li><li>Progress saved in your browser</li><li>Open source</li>
+            </ul>
             <div class="cta reveal" style="--d:4">
               <a class="btn primary" href="#work">Explore the projects
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4"/></svg>
@@ -544,9 +559,9 @@
 
         <ul class="stats reveal" style="--d:5">
           <li><strong data-count="3">3</strong><span>free learning sites</span></li>
-          <li><strong data-count="477">477</strong><span>practice problems with solutions</span></li>
-          <li><strong data-count="378">378</strong><span>classical poems in English</span></li>
-          <li><strong>0</strong><span>sign-ups needed; progress stays in your browser</span></li>
+          <li><strong data-count="477">477</strong><span>practice problems</span></li>
+          <li><strong data-count="378">378</strong><span>poems, translated</span></li>
+          <li><strong>0</strong><span>sign-ups needed</span></li>
         </ul>
       </div>
     </section>
@@ -560,7 +575,7 @@
             <h2 class="reveal" style="--d:1" id="work-title">Built to <em>share</em></h2>
           </div>
           <div class="reveal" style="--d:2">
-            <p class="intro">Side projects I make in my own time. They are free for anyone to use, and the code for each one is public on GitHub.</p>
+            <p class="intro">Built in my spare time. Free to use, open source.</p>
             <p class="hint">
               <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11L11 5M6 5h5v5"/></svg>Title opens the project</span>
               <span><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-github"/></svg>Repo name opens the source</span>
@@ -599,9 +614,13 @@
                 <div class="card-meta"><span>Interview prep</span><span class="status">Live</span></div>
                 <h4><a href="https://mleprep.github.io/">SDE &amp; MLE Prep<svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#i-arrow"/></svg></a></h4>
                 <a class="repo" href="https://github.com/mleprep/mleprep.github.io" aria-label="Source code: mleprep/mleprep.github.io on GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-github"/></svg>mleprep/mleprep.github.io</a>
-                <p class="desc">477 algorithm problems with Python, Java and Go solutions and an in-browser test runner, plus guides to system design and ML / deep learning.</p>
+                <ul class="points">
+                  <li>477 algorithm problems in Python, Java and Go</li>
+                  <li>Run tests right in the browser</li>
+                  <li>System design and ML guides</li>
+                </ul>
                 <p class="local"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-local"/></svg>No sign-up &middot; progress saved in your browser</p>
-                <p class="for"><b>Made for</b>Software and ML engineers getting ready for interviews.</p>
+                <p class="for"><b>Made for</b>Engineers preparing for interviews</p>
                 <ul class="tags" aria-label="Technologies"><li>Python</li><li>Java</li><li>Go</li><li>JavaScript</li></ul>
               </div>
             </article>
@@ -641,9 +660,13 @@
                 <div class="card-meta"><span>Elementary learning</span><span class="status">Live</span></div>
                 <h4><a href="https://alberta-edu.github.io/ab_edu/">Alberta Edu<svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#i-arrow"/></svg></a></h4>
                 <a class="repo" href="https://github.com/alberta-edu/ab_edu" aria-label="Source code: alberta-edu/ab_edu on GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-github"/></svg>alberta-edu/ab_edu</a>
-                <p class="desc">A free learning site for Alberta&rsquo;s elementary curriculum in ELAL, Math, Science and Social Studies: interactive lessons, three levels of practice with worked solutions, and spaced review.</p>
+                <ul class="points">
+                  <li>ELAL, Math, Science and Social Studies</li>
+                  <li>Interactive lessons, three practice levels</li>
+                  <li>Worked solutions and spaced review</li>
+                </ul>
                 <p class="local"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-local"/></svg>No sign-up &middot; progress saved in your browser</p>
-                <p class="for"><b>Made for</b>Elementary students in Alberta, and the families and teachers who help them.</p>
+                <p class="for"><b>Made for</b>Alberta students, families and teachers</p>
                 <ul class="tags" aria-label="Technologies"><li>Astro</li><li>TypeScript</li></ul>
               </div>
             </article>
@@ -673,9 +696,13 @@
                 <div class="card-meta"><span>Chinese culture</span><span class="status">Live</span></div>
                 <h4><a href="https://shici-poem.github.io/poems/">Classical Chinese Poems<span class="zh" lang="zh-Hans">诗词</span><svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#i-arrow"/></svg></a></h4>
                 <a class="repo" href="https://github.com/shici-poem/poems" aria-label="Source code: shici-poem/poems on GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-github"/></svg>shici-poem/poems</a>
-                <p class="desc">378 well-loved Chinese poems, from the <em>Book of Songs</em> to the Qing dynasty, each with pinyin, an English verse translation, background notes, read-aloud and an ink-wash painting drawn in the browser.</p>
+                <ul class="points">
+                  <li>378 poems, from the <em>Book of Songs</em> to the Qing</li>
+                  <li>Pinyin, English verse translations and notes</li>
+                  <li>Read-aloud and ink-wash paintings</li>
+                </ul>
                 <p class="local"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-local"/></svg>No sign-up &middot; progress saved in your browser</p>
-                <p class="for"><b>Made for</b>Anyone curious about Chinese poetry and culture, in Chinese or in English.</p>
+                <p class="for"><b>Made for</b>Anyone curious about Chinese culture</p>
                 <ul class="tags" aria-label="Technologies"><li>JavaScript</li><li>Python</li></ul>
               </div>
             </article>
@@ -713,8 +740,12 @@
                 <div class="card-meta"><span>Cities: Skylines mod</span><span class="status mod">Mod</span></div>
                 <h4><a href="https://github.com/the-cozy-studio/city_skylines_casual_city">Casual City<svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#i-arrow"/></svg></a></h4>
                 <a class="repo" href="https://github.com/the-cozy-studio/city_skylines_casual_city" aria-label="Source code: the-cozy-studio/city_skylines_casual_city on GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-github"/></svg>the-cozy-studio/city_skylines_casual_city</a>
-                <p class="desc">A mod for <em>Cities: Skylines</em> that makes for more relaxed play: no flooding, a traffic-volume slider and always-sunny weather, each switchable in the game&rsquo;s options. Runs on Windows and macOS.</p>
-                <p class="for"><b>Made for</b>Players who would rather build a calm, cozy city than fight disasters.</p>
+                <ul class="points">
+                  <li>No flooding, always-sunny weather</li>
+                  <li>Traffic-volume slider</li>
+                  <li>Each option switchable; Windows and macOS</li>
+                </ul>
+                <p class="for"><b>Made for</b>Players who want a calm, cozy city</p>
                 <ul class="tags" aria-label="Technologies"><li>C#</li><li>Harmony</li></ul>
               </div>
             </article>
@@ -750,8 +781,11 @@
                 <div class="card-meta"><span>HoloCure tools</span><span class="status mod">Mod</span></div>
                 <h4><a href="https://github.com/the-cozy-studio/holocure_modder">HoloCure Modder<svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><use href="#i-arrow"/></svg></a></h4>
                 <a class="repo" href="https://github.com/the-cozy-studio/holocure_modder" aria-label="Source code: the-cozy-studio/holocure_modder on GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#i-github"/></svg>the-cozy-studio/holocure_modder</a>
-                <p class="desc">Modding tools for <em>HoloCure</em>: a save-file editor with automatic backups, and an in-game mod that controls which stat upgrades and stamps can appear during a run.</p>
-                <p class="for"><b>Made for</b>Players who like to tinker with their runs.</p>
+                <ul class="points">
+                  <li>Save-file editor with automatic backups</li>
+                  <li>Choose which upgrades and stamps appear in a run</li>
+                </ul>
+                <p class="for"><b>Made for</b>Players who like to tinker</p>
                 <ul class="tags" aria-label="Technologies"><li>C++</li><li>Python</li></ul>
               </div>
             </article>
@@ -768,40 +802,48 @@
             <p class="kicker reveal"><span class="kn">02</span>Off the clock</p>
             <h2 class="reveal" style="--d:1" id="music-title">From one keyboard <em>to another</em></h2>
           </div>
-          <p class="intro reveal" style="--d:2">When I&rsquo;m not writing code, I&rsquo;m usually at the piano, playing or just listening. Bach, Chopin, Debussy and Rachmaninoff are the composers I keep coming back to.</p>
+          <p class="intro reveal" style="--d:2">Away from code, I&rsquo;m at the piano. Favourites: Bach, Chopin, Debussy and Rachmaninoff.</p>
         </header>
 
         <div class="music-lead">
-          <blockquote class="quote reveal">Baroque, Romantic and Impressionist music give us so much room to <em>imagine</em>. Anyone can step into that world as an equal, and it has a quiet way of <em>healing</em> us.</blockquote>
+          <blockquote class="quote reveal">This music gives us room to <em>imagine</em>, welcomes everyone as an equal, and quietly <em>heals</em> us.</blockquote>
           <div class="listen surface reveal js-only" style="--glow: 139 123 255">
             <div>
               <p class="kicker">Listening room</p>
               <h3>Rachmaninoff</h3>
               <p class="work">Second Piano Concerto in C minor</p>
-              <p class="sub">A few of my favourite moments. Press play and keep browsing; the music carries on in the background.</p>
+              <p class="sub">Plays in the background as you browse.</p>
               <p class="credit">Public-domain recording from <a href="https://musopen.org/">Musopen</a>, via <a href="https://commons.wikimedia.org/wiki/File:Sergei_Rachmaninoff_-_piano_concerto_no._2_in_c_minor,_op._18_-_iii._allegro_scherzando.ogg">Wikimedia Commons</a>.</p>
             </div>
             <ol class="tracks">
               <li>
                 <button class="track" type="button" data-track="0" aria-pressed="false">
                   <span class="tnum" aria-hidden="true">I</span>
-                  <span class="tname">The piano theme<small>Moderato: the piano sings the lyrical second theme</small></span>
+                  <span class="tname">The piano theme<small>Moderato</small></span>
                   <span class="tdur">1:34</span>
                   <span class="tbtn" aria-hidden="true"><svg class="i-play" viewBox="0 0 16 16"><path d="M5 3.2v9.6l7.6-4.8z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16"><path d="M4.5 3h2.4v10H4.5zM9.1 3h2.4v10H9.1z" fill="currentColor"/></svg></span>
                 </button>
               </li>
               <li>
                 <button class="track" type="button" data-track="1" aria-pressed="false">
-                  <span class="tnum" aria-hidden="true">III</span>
-                  <span class="tname">The lyrical theme<small>Allegro scherzando: first the oboe and violas, then the piano</small></span>
-                  <span class="tdur">1:30</span>
+                  <span class="tnum" aria-hidden="true">II</span>
+                  <span class="tname">The closing climax<small>Adagio sostenuto</small></span>
+                  <span class="tdur">2:30</span>
                   <span class="tbtn" aria-hidden="true"><svg class="i-play" viewBox="0 0 16 16"><path d="M5 3.2v9.6l7.6-4.8z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16"><path d="M4.5 3h2.4v10H4.5zM9.1 3h2.4v10H9.1z" fill="currentColor"/></svg></span>
                 </button>
               </li>
               <li>
                 <button class="track" type="button" data-track="2" aria-pressed="false">
                   <span class="tnum" aria-hidden="true">III</span>
-                  <span class="tname">The grand finale<small>The same theme returns Maestoso, with full orchestra</small></span>
+                  <span class="tname">The lyrical theme<small>Allegro scherzando</small></span>
+                  <span class="tdur">1:30</span>
+                  <span class="tbtn" aria-hidden="true"><svg class="i-play" viewBox="0 0 16 16"><path d="M5 3.2v9.6l7.6-4.8z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16"><path d="M4.5 3h2.4v10H4.5zM9.1 3h2.4v10H9.1z" fill="currentColor"/></svg></span>
+                </button>
+              </li>
+              <li>
+                <button class="track" type="button" data-track="3" aria-pressed="false">
+                  <span class="tnum" aria-hidden="true">III</span>
+                  <span class="tname">The grand finale<small>Maestoso</small></span>
                   <span class="tdur">1:34</span>
                   <span class="tbtn" aria-hidden="true"><svg class="i-play" viewBox="0 0 16 16"><path d="M5 3.2v9.6l7.6-4.8z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16"><path d="M4.5 3h2.4v10H4.5zM9.1 3h2.4v10H9.1z" fill="currentColor"/></svg></span>
                 </button>
@@ -810,53 +852,13 @@
           </div>
         </div>
 
-        <ul class="eras">
-          <li class="reveal">
-            <article class="era surface" style="--glow: 124 200 255">
-              <svg class="glyph" viewBox="0 0 160 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" focusable="false">
-                <path d="M0 24C13 6 27 6 40 24S67 42 80 24S107 6 120 24S147 42 160 24"/>
-                <path d="M0 24C13 42 27 42 40 24S67 6 80 24S107 42 120 24S147 6 160 24" opacity=".5"/>
-                <g fill="currentColor" stroke="none"><circle cx="40" cy="24" r="3"/><circle cx="80" cy="24" r="3"/><circle cx="120" cy="24" r="3"/></g>
-              </svg>
-              <p class="era-name">Baroque</p>
-              <ul class="composers"><li><span class="cn">Johann Sebastian Bach</span><span class="cy">1685&ndash;1750</span></li></ul>
-              <p>Independent voices, each clear on its own, woven into one design. Counterpoint feels a lot like well-built software.</p>
-            </article>
-          </li>
-          <li class="reveal" style="--d:1">
-            <article class="era surface" style="--glow: 139 123 255">
-              <svg class="glyph" viewBox="0 0 160 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" focusable="false">
-                <path d="M0 24Q10 21 20 24T40 24Q50 17 60 24T80 24Q90 12 100 24T120 24Q130 6 140 24T160 24"/>
-                <path d="M0 40L160 32M0 40L160 46" opacity=".45"/>
-              </svg>
-              <p class="era-name">Romantic</p>
-              <ul class="composers">
-                <li><span class="cn">Fr&eacute;d&eacute;ric Chopin</span><span class="cy">1810&ndash;1849</span></li>
-                <li><span class="cn">Sergei Rachmaninoff</span><span class="cy">1873&ndash;1943</span></li>
-              </ul>
-              <p>Music that speaks straight from the heart, from Chopin&rsquo;s intimate nocturnes to the sweeping melodies of Rachmaninoff&rsquo;s Second Concerto.</p>
-            </article>
-          </li>
-          <li class="reveal" style="--d:2">
-            <article class="era surface" style="--glow: 61 214 245">
-              <svg class="glyph" viewBox="0 0 160 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" focusable="false">
-                <circle cx="118" cy="13" r="8" fill="currentColor" stroke="none" opacity=".9"/>
-                <path d="M8 34h34M52 34h20M84 34h40M136 34h16M22 41h24M58 41h44M112 41h22M38 47h18M74 47h26" opacity=".7"/>
-              </svg>
-              <p class="era-name">Impressionism</p>
-              <ul class="composers"><li><span class="cn">Claude Debussy</span><span class="cy">1862&ndash;1918</span></li></ul>
-              <p>Less about telling a story, more about color, light and atmosphere. <em>Clair de lune</em> paints moonlight with sound.</p>
-            </article>
-          </li>
-        </ul>
-
         <div class="piano surface reveal js-only" id="piano">
           <div class="piano-top">
             <div class="track-info">
               <span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
               <div>
                 <p class="track-title">Bach, Prelude in C major</p>
-                <p class="track-sub" id="piano-status" aria-live="polite">Tap any key, or play the opening bars.</p>
+                <p class="track-sub" id="piano-status" aria-live="polite">Tap a key, or play the opening</p>
               </div>
             </div>
             <button class="btn primary play" id="play" type="button" aria-pressed="false">
@@ -971,6 +973,7 @@
     const music = (() => {
       const TRACKS = [
         { src: 'audio/rach2-i-theme.mp3', mv: 'I', name: 'The piano theme' },
+        { src: 'audio/rach2-ii-climax.mp3', mv: 'II', name: 'The closing climax' },
         { src: 'audio/rach2-iii-theme.mp3', mv: 'III', name: 'The lyrical theme' },
         { src: 'audio/rach2-iii-finale.mp3', mv: 'III', name: 'The grand finale' },
       ];
@@ -1028,12 +1031,14 @@
         if (p && p.catch) p.catch(() => render());
         fade(VOL, 900);
         meta(); render();
+        return p;
       }
       function pause() { fade(0, 350, () => { el.pause(); render(); }); }
+      let userStopped = false;
       function toggle(i) {
         held = false;
-        if (i != null && i !== idx) return play(i);
-        if (el.paused) play(); else pause();
+        if (i != null && i !== idx) { userStopped = false; return play(i); }
+        if (el.paused) { userStopped = false; play(); } else { userStopped = true; pause(); }
       }
       const bad = new Set();
       function after(i) {
@@ -1043,7 +1048,7 @@
       }
       function next() { held = false; play(after(idx)); }
       function close() {
-        held = false; pause();
+        held = false; userStopped = true; pause();
         dock.classList.remove('show');
         setTimeout(() => { if (!dock.classList.contains('show')) dock.hidden = true; }, 320);
       }
@@ -1079,6 +1084,27 @@
           navigator.mediaSession.setActionHandler('nexttrack', next);
         } catch (e) {}
       }
+
+      // Start playing as soon as the page loads, then loop through every
+      // excerpt. Most browsers block sound until the visitor interacts, so
+      // if autoplay is refused, start on the first click, tap or key press.
+      (function autostart() {
+        const events = ['pointerdown', 'keydown', 'touchend'];
+        const stopWaiting = () => events.forEach(t => removeEventListener(t, kick, true));
+        function kick(e) {
+          const t = e.target && e.target.closest ? e.target : null;
+          // The music controls handle themselves; the piano keys would clash.
+          if (t && t.closest('#sound, .dock, .track')) return stopWaiting();
+          if (t && t.closest('#keys, #play')) return;
+          if (userStopped || !el.paused || held) return stopWaiting();
+          // On touch screens pointerdown doesn't count as a user gesture, so
+          // this attempt can be refused; keep listening until one succeeds.
+          const p = play();
+          if (p && p.then) p.then(stopWaiting, () => {}); else stopWaiting();
+        }
+        const p = play(0);
+        if (p && p.catch) p.catch(() => events.forEach(t => addEventListener(t, kick, true)));
+      })();
 
       return {
         // Lower the music briefly while someone plays the piano keys.
@@ -1281,7 +1307,7 @@
       panel.classList.toggle('playing', on);
       playBtn.setAttribute('aria-pressed', on);
       playBtn.querySelector('span').textContent = on ? 'Stop' : 'Play the opening';
-      statusEl.textContent = on ? 'Playing the first four bars…' : 'Tap any key, or play the opening bars.';
+      statusEl.textContent = on ? 'Playing the first four bars…' : 'Tap a key, or play the opening';
     }
     function tick() {
       while (idx < seq.length && next < ctx.currentTime + .2) {
